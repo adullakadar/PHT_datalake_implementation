@@ -1,0 +1,344 @@
+Voucher Type,Voucher Class,Voucher No,Date,Day,Destination Godown,Name of Item,Source Godown,Quantity,Rate,per,Amount,Narration
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00289,1-Oct-21,Friday,Dubai 1 Showroom,SS304 D Shackle 22mm,Sharjah 1 Branch,8 Nos,26.97,Nos,215.76,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00290,1-Oct-21,Friday,Dubai 1 Showroom,SS304 Ball Lock Quick Release Pin 12x60mm,Sharjah 1 Branch,2 Nos,50.87,Nos,101.74,PS#000975
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00291,1-Oct-21,Friday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 4.2x22mm,Sharjah 1 Branch,150 Nos,0.12,Nos,18.00,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00291,1-Oct-21,Friday,Dubai 1 Showroom,SS304 Set Screw Cup Point DIN916 M14x30,Sharjah 1 Branch,142 Nos,0.47,Nos,66.74,"PS#000979 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,1-Oct-21,Friday,Dubai 1 Showroom,Spring Steel Extension Spring 0.8x12x30mm,Sharjah 1 Branch,13 Nos,0.42,Nos,5.46,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,1-Oct-21,Friday,Dubai 1 Showroom,Galvanized Single Sheave Pulley Block 38mm [DE],Sharjah 1 Branch,1 Nos,18.50,Nos,18.50,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,1-Oct-21,Friday,Dubai 1 Showroom,Zinc Plated Self Tapping Pan DIN7981 3.5x16mm,Sharjah 1 Branch,150 Nos,0.09,Nos,13.50,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,1-Oct-21,Friday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M10x80 Box/100,Sharjah 1 Branch,1 Box,137.33,Box,137.33,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,1-Oct-21,Friday,Dubai 1 Showroom,SS304 Socket Cap Screw DIN912 M12x45,Sharjah 1 Branch,100 Nos,1.17,Nos,117.00,PS#000987 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,1-Oct-21,Friday,Dubai 1 Showroom,SS316 Eye Bolt DIN580 M10,Sharjah 1 Branch,21 Nos,6.85,Nos,143.85,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00298,1-Oct-21,Friday,Dubai 1 Showroom,SS316 Hex Lag Screw DIN571 M16x220 Box/50,Sharjah 1 Branch,2 Box,443.97,Box,887.94,PS#000986 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00289,2-Oct-21,Saturday,Dubai 1 Showroom,Galvanized U-Bolt M10x60,Sharjah 1 Branch,10 Nos,2.41,Nos,24.10,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00291,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Nylock Nut DIN985 M6 Box/100,Sharjah 1 Branch,1 Box,19.73,Box,19.73,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00291,2-Oct-21,Saturday,Dubai 1 Showroom,SS316 U-Bolt M16x110,Sharjah 1 Branch,1 Nos,29.63,Nos,29.63,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00291,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Wood Screw CSK 5x20mm Box/500 [DE],Sharjah 1 Branch,1 Box,124.54,Box,124.54,PS#000979 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,2-Oct-21,Saturday,Dubai 1 Showroom,SS316 Snap Hook with Eyelet DIN5299D 8mm,Sharjah 1 Branch,30 Nos,4.33,Nos,129.90,PS#000983
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M14x45 Box/100,Sharjah 1 Branch,3 Box,186.91,Box,560.73,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M8x25 Box/100,Sharjah 1 Branch,2 Box,28.75,Box,57.50,PS#000983
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00295,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Turnbuckle Hook-Eye M6 [DE],Sharjah 1 Branch,9 Nos,5.38,Nos,48.42,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,2-Oct-21,Saturday,Dubai 1 Showroom,SS316 Wood Screw CSK 5x80mm Box/100,Sharjah 1 Branch,5 Box,36.08,Box,180.40,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,2-Oct-21,Saturday,Dubai 1 Showroom,Zinc Plated CSK Socket Screw DIN7991 M12x25 [DE],Sharjah 1 Branch,100 Nos,0.73,Nos,73.00,PS#000987 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,2-Oct-21,Saturday,Dubai 1 Showroom,SPECIAL SS304 Cotter Pin DIN94 custom length,Sharjah 1 Branch,20 Nos,31.18,Nos,623.60,PS#000987
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,2-Oct-21,Saturday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 3.2x40mm,Sharjah 1 Branch,100 Nos,0.18,Nos,18.00,PS#000989 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00300,2-Oct-21,Saturday,Sharjah 1 Branch,SS316 Spring Roll Pin DIN1481 5x35mm Box/100,Dubai 1 Showroom,1 Box,25.44,Box,25.44,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00300,2-Oct-21,Saturday,Sharjah 1 Branch,SS304 Spring Roll Pin DIN1481 6x40mm Box/100,Dubai 1 Showroom,2 Box,21.32,Box,42.64,PS#000991 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00300,2-Oct-21,Saturday,Sharjah 1 Branch,Galvanized Hex Bolt DIN933 M10x30 Box/500,Dubai 1 Showroom,4 Box,158.60,Box,634.40,PS#000991
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00300,2-Oct-21,Saturday,Sharjah 1 Branch,SS316 Self Tapping CSK DIN7982 3.9x16mm Box/100 [DE],Dubai 1 Showroom,4 Box,20.66,Box,82.64,PS#000991 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00301,2-Oct-21,Saturday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M14x55,Sharjah 1 Branch,30 Nos,3.24,Nos,97.20,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,3-Oct-21,Sunday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M10x100,Sharjah 1 Branch,20 Nos,1.44,Nos,28.80,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,3-Oct-21,Sunday,Dubai 1 Showroom,SPECIAL SS316 Cotter Pin DIN94 2x25mm drilled,Sharjah 1 Branch,2 Nos,29.96,Nos,59.92,PS#000983
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,3-Oct-21,Sunday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 5x20mm Box/100,Sharjah 1 Branch,3 Box,19.02,Box,57.06,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,3-Oct-21,Sunday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN931 M20x80,Sharjah 1 Branch,28 Nos,3.08,Nos,86.24,"PS#000989 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,3-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wedge Anchor M12x120 [DE],Sharjah 1 Branch,2 Nos,13.88,Nos,27.76,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,3-Oct-21,Sunday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M20x100 Box/50 [DE],Sharjah 1 Branch,1 Box,618.68,Box,618.68,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,3-Oct-21,Sunday,Dubai 1 Showroom,SS304 Set Screw Cup Point DIN916 M14x30,Sharjah 1 Branch,100 Nos,0.47,Nos,47.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00301,3-Oct-21,Sunday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN931 M16x120 Box/50 [DE],Sharjah 1 Branch,2 Box,219.02,Box,438.04,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00294,4-Oct-21,Monday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M6x25 Box/100,Sharjah 1 Branch,5 Box,9.22,Box,46.10,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,4-Oct-21,Monday,Dubai 1 Showroom,Zinc Plated Spring Washer DIN127 M8 Box/500,Sharjah 1 Branch,1 Box,18.10,Box,18.10,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,4-Oct-21,Monday,Dubai 1 Showroom,SS304 Sleeve Anchor M10x150 Box/50,Sharjah 1 Branch,1 Box,213.19,Box,213.19,PS#000987 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,4-Oct-21,Monday,Dubai 1 Showroom,SS316 Wire Rope Thimble DIN6899 12mm,Sharjah 1 Branch,10 Nos,2.78,Nos,27.80,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,4-Oct-21,Monday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M18x70 Box/50,Sharjah 1 Branch,6 Box,268.52,Box,1611.12,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00301,4-Oct-21,Monday,Dubai 1 Showroom,SS304 Long D Shackle 5mm [DE],Sharjah 1 Branch,50 Nos,5.48,Nos,274.00,PS#000992 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,4-Oct-21,Monday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M14x55,Sharjah 1 Branch,20 Nos,2.90,Nos,58.00,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,4-Oct-21,Monday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 4.8x16mm,Sharjah 1 Branch,75 Nos,0.11,Nos,8.25,PS#000996 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00304,4-Oct-21,Monday,Sharjah 1 Branch,SS316 Hex Bolt DIN931 M24x160,Dubai 1 Showroom,4 Nos,21.47,Nos,85.88,PS#000994 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00304,4-Oct-21,Monday,Sharjah 1 Branch,SS304 Snap Hook DIN5299 Form C 12mm [DE],Dubai 1 Showroom,7 Nos,11.44,Nos,80.08,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00304,4-Oct-21,Monday,Sharjah 1 Branch,SS304 Self Tapping CSK DIN7982 3.9x32mm Box/100,Dubai 1 Showroom,1 Box,9.76,Box,9.76,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00304,4-Oct-21,Monday,Sharjah 1 Branch,Grade 8.8 Black Hex Nut DIN934 M12 Box/100,Dubai 1 Showroom,2 Box,26.54,Box,53.08,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00304,4-Oct-21,Monday,Sharjah 1 Branch,SS316 CSK Socket Screw DIN7991 M8x50 Box/100,Dubai 1 Showroom,2 Box,52.30,Box,104.60,PS#000994 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00296,5-Oct-21,Tuesday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN933 M18x70 Box/50,Sharjah 1 Branch,2 Box,117.99,Box,235.98,PS#000987 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Long Link Chain DIN763 5mm,Sharjah 1 Branch,40 Mtr,6.98,Mtr,279.20,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,5-Oct-21,Tuesday,Dubai 1 Showroom,Galvanized Bow Shackle 16mm,Sharjah 1 Branch,30 Nos,9.16,Nos,274.80,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Extension Spring 1.5x20x80mm,Sharjah 1 Branch,7 Nos,2.87,Nos,20.09,PS#000989
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00301,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 D Shackle 19mm,Sharjah 1 Branch,6 Nos,19.53,Nos,117.18,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,Galvanized Hex Nut DIN934 M8 Box/500,Sharjah 1 Branch,5 Box,53.78,Box,268.90,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M6x60,Sharjah 1 Branch,75 Nos,0.48,Nos,36.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M16x100 Box/50,Sharjah 1 Branch,1 Box,318.30,Box,318.30,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Carriage Bolt DIN603 M16x140,Sharjah 1 Branch,10 Nos,5.31,Nos,53.10,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Flat Washer DIN125 M16 Box/50,Sharjah 1 Branch,1 Box,17.09,Box,17.09,PS#000996 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,5-Oct-21,Tuesday,Dubai 1 Showroom,Galvanized Hex Bolt DIN931 M24x220,Sharjah 1 Branch,6 Nos,10.98,Nos,65.88,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00303,5-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M8x25 Box/100,Sharjah 1 Branch,3 Box,28.75,Box,86.25,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,5-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Self Tapping Pan DIN7981 5.5x50mm Box/500,Sharjah 1 Branch,1 Box,122.82,Box,122.82,PS#000999 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00306,5-Oct-21,Tuesday,Sharjah 1 Branch,SS304 Self Tapping Pan DIN7981 3.5x22mm Box/100,Dubai 1 Showroom,2 Box,7.72,Box,15.44,PS#000998 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00306,5-Oct-21,Tuesday,Sharjah 1 Branch,SS304 Cotter Pin DIN94 3.2x20mm Box/100,Dubai 1 Showroom,2 Box,11.37,Box,22.74,PS#000998 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00299,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 4.8x25mm Box/100 [DE],Sharjah 1 Branch,1 Box,36.61,Box,36.61,PS#000989
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00301,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M10x50 Box/500,Sharjah 1 Branch,1 Box,572.15,Box,572.15,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Hex Lag Screw DIN571 M10x120 Box/100,Sharjah 1 Branch,3 Box,126.89,Box,380.67,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Hex Lag Screw DIN571 M8x110 Box/500,Sharjah 1 Branch,1 Box,386.53,Box,386.53,PS#000996
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Pan Head Machine Screw ISO7045 M6x30 Box/100,Sharjah 1 Branch,1 Box,12.05,Box,12.05,PS#000996
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Quick Link 14mm [DE],Sharjah 1 Branch,1 Nos,24.63,Nos,24.63,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 4x50mm Box/100 [DE],Sharjah 1 Branch,1 Box,70.85,Box,70.85,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Spring Roll Pin DIN1481 12x40mm Box/100,Sharjah 1 Branch,1 Box,68.66,Box,68.66,PS#000996 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,6-Oct-21,Wednesday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M16x45 [DE],Sharjah 1 Branch,20 Nos,2.16,Nos,43.20,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00303,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 U-Bolt M16x110,Sharjah 1 Branch,2 Nos,29.63,Nos,59.26,PS#000995
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,6-Oct-21,Wednesday,Dubai 1 Showroom,SS304 S Hook 5mm [DE],Sharjah 1 Branch,100 Nos,1.15,Nos,115.00,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,6-Oct-21,Wednesday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M12x55,Sharjah 1 Branch,100 Nos,0.81,Nos,81.00,"PS#000999 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 D Shackle 4mm,Sharjah 1 Branch,14 Nos,1.70,Nos,23.80,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,6-Oct-21,Wednesday,Dubai 1 Showroom,SPECIAL SS304 Hex Lag Screw DIN571 7mm,Sharjah 1 Branch,10 Nos,11.63,Nos,116.30,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,6-Oct-21,Wednesday,Dubai 1 Showroom,SPECIAL Galvanized Wire Rope 7x19 non-standard,Sharjah 1 Branch,10 Mtr,14.80,Mtr,148.00,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,6-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M8x70 Box/100,Sharjah 1 Branch,2 Box,105.23,Box,210.46,PS#001002 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,6-Oct-21,Wednesday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M12x45 Box/100,Sharjah 1 Branch,3 Box,46.89,Box,140.67,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,7-Oct-21,Thursday,Dubai 1 Showroom,SS304 Long Link Chain DIN763 4mm,Sharjah 1 Branch,75 Mtr,3.89,Mtr,291.75,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00302,7-Oct-21,Thursday,Dubai 1 Showroom,SS304 Circlip External DIN471 30mm Box/100,Sharjah 1 Branch,1 Box,45.10,Box,45.10,PS#000996 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,7-Oct-21,Thursday,Dubai 1 Showroom,SS304 Sleeve Anchor M10x150 Box/50,Sharjah 1 Branch,1 Box,213.19,Box,213.19,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,7-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated CSK Socket Screw DIN7991 M5x20,Sharjah 1 Branch,13 Nos,0.09,Nos,1.17,PS#000999 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,7-Oct-21,Thursday,Dubai 1 Showroom,SS304 Wood Screw CSK 4x16mm Box/100,Sharjah 1 Branch,1 Box,8.79,Box,8.79,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00309,7-Oct-21,Thursday,Sharjah 1 Branch,SS316 Socket Cap Screw DIN912 M8x75 Box/100,Dubai 1 Showroom,2 Box,88.81,Box,177.62,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00309,7-Oct-21,Thursday,Sharjah 1 Branch,Grade 8.8 Black Hex Bolt DIN933 M12x25 Box/100,Dubai 1 Showroom,2 Box,36.76,Box,73.52,PS#001004
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00309,7-Oct-21,Thursday,Sharjah 1 Branch,SS304 Socket Cap Screw DIN912 M14x100 Box/100,Dubai 1 Showroom,2 Box,275.25,Box,550.50,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00310,7-Oct-21,Thursday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M10x50 Box/500,Sharjah 1 Branch,1 Box,572.15,Box,572.15,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00310,7-Oct-21,Thursday,Dubai 1 Showroom,Galvanized S Hook 8mm,Sharjah 1 Branch,110 Nos,0.75,Nos,82.50,PS#001005
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,8-Oct-21,Friday,Dubai 1 Showroom,SS304 Wire Rope Clip DIN741 19mm,Sharjah 1 Branch,30 Nos,7.59,Nos,227.70,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00307,8-Oct-21,Friday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 4.8x25mm Box/100 [DE],Sharjah 1 Branch,2 Box,36.61,Box,73.22,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,8-Oct-21,Friday,Dubai 1 Showroom,SS304 Wedge Anchor M8x50 Box/50,Sharjah 1 Branch,3 Box,64.56,Box,193.68,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00303,9-Oct-21,Saturday,Dubai 1 Showroom,Galvanized Single Sheave Pulley Block 38mm [DE],Sharjah 1 Branch,6 Nos,18.50,Nos,111.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,9-Oct-21,Saturday,Dubai 1 Showroom,SS304 Sleeve Anchor M8x90,Sharjah 1 Branch,73 Nos,1.97,Nos,143.81,PS#000999 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00305,9-Oct-21,Saturday,Dubai 1 Showroom,Spring Steel Extension Spring 5x40x30mm,Sharjah 1 Branch,10 Nos,6.83,Nos,68.30,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,9-Oct-21,Saturday,Dubai 1 Showroom,SS304 U-Bolt M16x200,Sharjah 1 Branch,9 Nos,34.06,Nos,306.54,"PS#001002 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,9-Oct-21,Saturday,Dubai 1 Showroom,Grade 8.8 Black Hex Nut DIN934 M3 [DE],Sharjah 1 Branch,13 Nos,0.10,Nos,1.30,PS#001002
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00308,9-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Flange Bolt DIN6921 M12x50 Box/500,Sharjah 1 Branch,4 Box,726.63,Box,2906.52,PS#001002
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00311,9-Oct-21,Saturday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 2x16mm,Sharjah 1 Branch,75 Nos,0.09,Nos,6.75,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,9-Oct-21,Saturday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M8x25,Sharjah 1 Branch,100 Nos,0.54,Nos,54.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00313,9-Oct-21,Saturday,Sharjah 1 Branch,SS304 Hex Bolt DIN933 M24x140,Dubai 1 Showroom,4 Nos,14.37,Nos,57.48,PS#001009 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00314,9-Oct-21,Saturday,Dubai 1 Showroom,SS316 Quick Link 14mm [DE],Sharjah 1 Branch,3 Nos,24.63,Nos,73.89,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00310,10-Oct-21,Sunday,Dubai 1 Showroom,Spring Steel Extension Spring 3x16x100mm,Sharjah 1 Branch,30 Nos,4.61,Nos,138.30,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00311,10-Oct-21,Sunday,Dubai 1 Showroom,SS304 Extension Spring 2.5x10x50mm,Sharjah 1 Branch,4 Nos,4.11,Nos,16.44,PS#001007
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,10-Oct-21,Sunday,Dubai 1 Showroom,SS304 Circlip External DIN471 30mm Box/100,Sharjah 1 Branch,1 Box,45.10,Box,45.10,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,10-Oct-21,Sunday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 6.3x25mm,Sharjah 1 Branch,114 Nos,0.46,Nos,52.44,"PS#001011 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,10-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M10x75 Box/500,Sharjah 1 Branch,1 Box,230.84,Box,230.84,PS#001011 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00311,11-Oct-21,Monday,Dubai 1 Showroom,SS304 Turnbuckle Eye-Eye M8,Sharjah 1 Branch,75 Nos,5.41,Nos,405.75,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 6.3x20mm,Sharjah 1 Branch,96 Nos,0.52,Nos,49.92,PS#001011 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,SS304 Flat Washer DIN125 M16 Box/50,Sharjah 1 Branch,1 Box,17.09,Box,17.09,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,SS304 Quick Link 6mm,Sharjah 1 Branch,20 Nos,1.38,Nos,27.60,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,SS304 Clevis Pin DIN1444 12x40mm,Sharjah 1 Branch,20 Nos,5.75,Nos,115.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN931 M10x80 Box/100,Sharjah 1 Branch,6 Box,56.85,Box,341.10,PS#001011 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,11-Oct-21,Monday,Dubai 1 Showroom,SPECIAL Galvanized Quick Link M11,Sharjah 1 Branch,1 Nos,25.89,Nos,25.89,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,11-Oct-21,Monday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M5x45 Box/100,Sharjah 1 Branch,2 Box,28.67,Box,57.34,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,11-Oct-21,Monday,Dubai 1 Showroom,SS304 Ball Lock Quick Release Pin 12x80mm,Sharjah 1 Branch,6 Nos,60.37,Nos,362.22,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00316,11-Oct-21,Monday,Sharjah 1 Branch,Galvanized Wire Rope 7x19 PVC Coated 4mm Reel/500m,Dubai 1 Showroom,2 Reel,263.53,Reel,527.06,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,12-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Sleeve Anchor M10x150 Box/50,Sharjah 1 Branch,1 Box,213.19,Box,213.19,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,12-Oct-21,Tuesday,Dubai 1 Showroom,Spring Steel Extension Spring 5x40x30mm,Sharjah 1 Branch,5 Nos,6.83,Nos,34.15,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,12-Oct-21,Tuesday,Dubai 1 Showroom,Spring Steel Spring Roll Pin DIN1481 4x12mm,Sharjah 1 Branch,151 Nos,0.10,Nos,15.10,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,12-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 6.3x20mm,Sharjah 1 Branch,19 Nos,0.52,Nos,9.88,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00317,12-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Spring Roll Pin DIN1481 12x40mm Box/100,Sharjah 1 Branch,1 Box,68.66,Box,68.66,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00318,12-Oct-21,Tuesday,Sharjah 1 Branch,SS304 Cotter Pin DIN94 1.6x10mm Box/100,Dubai 1 Showroom,2 Box,2.49,Box,4.98,PS#001016 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00318,12-Oct-21,Tuesday,Sharjah 1 Branch,SS304 Carriage Bolt DIN603 M6x50 Box/100,Dubai 1 Showroom,2 Box,26.55,Box,53.10,PS#001016 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,13-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Socket Cap Screw DIN912 M20x130 Box/50,Sharjah 1 Branch,1 Box,439.66,Box,439.66,PS#001011 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,13-Oct-21,Wednesday,Dubai 1 Showroom,Galvanized Hex Lag Screw DIN571 M5x20 Box/100,Sharjah 1 Branch,2 Box,4.64,Box,9.28,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,13-Oct-21,Wednesday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M20x60 Box/50,Sharjah 1 Branch,4 Box,135.76,Box,543.04,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,13-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M8x80,Sharjah 1 Branch,75 Nos,0.85,Nos,63.75,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,13-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 2.9x45mm,Sharjah 1 Branch,150 Nos,0.12,Nos,18.00,PS#001014 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,13-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 6.3x20mm,Sharjah 1 Branch,65 Nos,0.41,Nos,26.65,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,13-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Nut DIN934 M6 Box/100 [DE],Sharjah 1 Branch,1 Box,40.34,Box,40.34,PS#001014
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,13-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Fender Washer DIN9021 M18,Sharjah 1 Branch,30 Nos,1.46,Nos,43.80,PS#001014
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00319,13-Oct-21,Wednesday,Sharjah 1 Branch,Zinc Plated Socket Cap Screw DIN912 M14x65 Box/500,Dubai 1 Showroom,2 Box,350.56,Box,701.12,"PS#001019 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00319,13-Oct-21,Wednesday,Sharjah 1 Branch,Zinc Plated Flat Washer DIN125 M10 Box/100 [DE],Dubai 1 Showroom,2 Box,10.22,Box,20.44,PS#001019 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00312,14-Oct-21,Thursday,Dubai 1 Showroom,SS304 R Clip Safety Pin 5mm Box/100,Sharjah 1 Branch,2 Box,84.25,Box,168.50,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,14-Oct-21,Thursday,Dubai 1 Showroom,SS304 Wood Screw CSK 4x16mm Box/100,Sharjah 1 Branch,1 Box,8.79,Box,8.79,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,14-Oct-21,Thursday,Dubai 1 Showroom,SS316 Spring Washer DIN127 M10 Box/100,Sharjah 1 Branch,5 Box,19.03,Box,95.15,"PS#001014 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,14-Oct-21,Thursday,Dubai 1 Showroom,SS304 Turnbuckle Hook-Eye M16,Sharjah 1 Branch,4 Nos,23.14,Nos,92.56,PS#001014 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,14-Oct-21,Thursday,Dubai 1 Showroom,Spring Steel Compression Spring 5x20x25mm,Sharjah 1 Branch,4 Nos,4.47,Nos,17.88,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00315,14-Oct-21,Thursday,Dubai 1 Showroom,SS316 Wedge Anchor M10x130,Sharjah 1 Branch,24 Nos,7.90,Nos,189.60,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00320,14-Oct-21,Thursday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 3.9x25mm,Sharjah 1 Branch,150 Nos,0.12,Nos,18.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00320,14-Oct-21,Thursday,Dubai 1 Showroom,SS316 Wedge Anchor M12x180 [DE],Sharjah 1 Branch,7 Nos,20.78,Nos,145.46,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,14-Oct-21,Thursday,Dubai 1 Showroom,Galvanized Bow Shackle 10mm,Sharjah 1 Branch,3 Nos,3.63,Nos,10.89,PS#001024 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,14-Oct-21,Thursday,Dubai 1 Showroom,SPECIAL SS316 Hex Lag Screw DIN571 M12x75 drilled,Sharjah 1 Branch,1 Nos,12.39,Nos,12.39,PS#001024 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00322,14-Oct-21,Thursday,Sharjah 1 Branch,SS316 Pan Head Machine Screw ISO7045 M6x60 Box/500,Dubai 1 Showroom,3 Box,91.34,Box,274.02,PS#001022
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00322,14-Oct-21,Thursday,Sharjah 1 Branch,SS304 Hex Bolt DIN933 M18x140 [DE],Dubai 1 Showroom,5 Nos,11.38,Nos,56.90,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00322,14-Oct-21,Thursday,Sharjah 1 Branch,Grade 8.8 Black Hex Nut DIN934 M16 Box/50,Dubai 1 Showroom,2 Box,23.53,Box,47.06,PS#001022 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00322,14-Oct-21,Thursday,Sharjah 1 Branch,Galvanized Hex Lag Screw DIN571 M14x200,Dubai 1 Showroom,7 Nos,2.25,Nos,15.75,PS#001022
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00317,15-Oct-21,Friday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M10x20 Box/500,Sharjah 1 Branch,5 Box,210.62,Box,1053.10,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00320,15-Oct-21,Friday,Dubai 1 Showroom,Galvanized Wire Rope Clip DIN741 16mm [DE],Sharjah 1 Branch,50 Nos,4.97,Nos,248.50,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,15-Oct-21,Friday,Dubai 1 Showroom,Galvanized Bow Shackle 10mm,Sharjah 1 Branch,30 Nos,3.63,Nos,108.90,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,15-Oct-21,Friday,Dubai 1 Showroom,SS304 Flat Washer DIN125 M16 Box/50,Sharjah 1 Branch,1 Box,17.09,Box,17.09,PS#001024
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00320,16-Oct-21,Saturday,Dubai 1 Showroom,SS316 Wire Rope Clip DIN741 5mm,Sharjah 1 Branch,49 Nos,0.80,Nos,39.20,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,16-Oct-21,Saturday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M22x100 Box/50 [DE],Sharjah 1 Branch,2 Box,1161.77,Box,2323.54,PS#001024 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,16-Oct-21,Saturday,Dubai 1 Showroom,SS304 Clevis Pin DIN1444 10x50mm [DE],Sharjah 1 Branch,1 Nos,9.69,Nos,9.69,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,16-Oct-21,Saturday,Dubai 1 Showroom,SS316 Set Screw Cup Point DIN916 M3x8 Box/100,Sharjah 1 Branch,1 Box,0.75,Box,0.75,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,16-Oct-21,Saturday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 3.9x60mm Box/100,Sharjah 1 Branch,1 Box,15.29,Box,15.29,PS#001026 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,16-Oct-21,Saturday,Dubai 1 Showroom,SS304 Clevis Pin DIN1444 14x160mm Box/100,Sharjah 1 Branch,3 Box,1321.51,Box,3964.53,"PS#001026 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00325,16-Oct-21,Saturday,Sharjah 1 Branch,SS316 Wedge Anchor M12x140,Dubai 1 Showroom,3 Nos,11.36,Nos,34.08,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00325,16-Oct-21,Saturday,Sharjah 1 Branch,Zinc Plated CSK Socket Screw DIN7991 M10x45 Box/100 [DE],Dubai 1 Showroom,2 Box,59.06,Box,118.12,PS#001028
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00325,16-Oct-21,Saturday,Sharjah 1 Branch,SS304 Ball Lock Quick Release Pin 8x50mm,Dubai 1 Showroom,4 Nos,22.90,Nos,91.60,PS#001028
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00325,16-Oct-21,Saturday,Sharjah 1 Branch,Zinc Plated Wood Screw CSK 3.5x40mm Box/100,Dubai 1 Showroom,2 Box,4.83,Box,9.66,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00325,16-Oct-21,Saturday,Sharjah 1 Branch,Galvanized Hex Bolt DIN931 M14x80 Box/100,Dubai 1 Showroom,4 Box,129.50,Box,518.00,PS#001028
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,16-Oct-21,Saturday,Dubai 1 Showroom,SS316 Hex Nut DIN934 M6 Box/100 [DE],Sharjah 1 Branch,1 Box,40.34,Box,40.34,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,17-Oct-21,Sunday,Dubai 1 Showroom,SS316 CSK Socket Screw DIN7991 M5x40 [DE],Sharjah 1 Branch,25 Nos,0.38,Nos,9.50,PS#001024 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00323,17-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M10x75 Box/500,Sharjah 1 Branch,2 Box,230.84,Box,461.68,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,17-Oct-21,Sunday,Dubai 1 Showroom,SS304 Button Head Screw ISO7380 M12x90,Sharjah 1 Branch,75 Nos,1.96,Nos,147.00,"PS#001026 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,17-Oct-21,Sunday,Dubai 1 Showroom,Zinc Plated Socket Cap Screw DIN912 M14x90 Box/100 [DE],Sharjah 1 Branch,1 Box,244.06,Box,244.06,PS#001026
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,17-Oct-21,Sunday,Dubai 1 Showroom,SS304 Sleeve Anchor M8x60,Sharjah 1 Branch,18 Nos,1.59,Nos,28.62,PS#001026
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,17-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wire Rope 7x7 4mm,Sharjah 1 Branch,100 Mtr,0.94,Mtr,94.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,17-Oct-21,Sunday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M5x25 [DE],Sharjah 1 Branch,100 Nos,0.20,Nos,20.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,17-Oct-21,Sunday,Dubai 1 Showroom,SS316 Blind Rivet Dome Head 4x25mm,Sharjah 1 Branch,150 Nos,0.10,Nos,15.00,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,17-Oct-21,Sunday,Dubai 1 Showroom,SS316 U-Bolt M5x60,Sharjah 1 Branch,50 Nos,1.29,Nos,64.50,PS#001029 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,17-Oct-21,Sunday,Dubai 1 Showroom,SS304 Socket Cap Screw DIN912 M10x75 Box/500,Sharjah 1 Branch,1 Box,529.07,Box,529.07,PS#001029
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00321,18-Oct-21,Monday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M12x110 Box/500,Sharjah 1 Branch,1 Box,1661.07,Box,1661.07,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,18-Oct-21,Monday,Dubai 1 Showroom,SS316 Clevis Pin DIN1444 8x120mm,Sharjah 1 Branch,10 Nos,8.74,Nos,87.40,PS#001026
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,18-Oct-21,Monday,Dubai 1 Showroom,SS304 Carriage Bolt DIN603 M10x120 [DE],Sharjah 1 Branch,2 Nos,3.17,Nos,6.34,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,18-Oct-21,Monday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M14x160 Box/100,Sharjah 1 Branch,3 Box,456.89,Box,1370.67,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,SS304 Sleeve Anchor M10x150 Box/50,Sharjah 1 Branch,1 Box,213.19,Box,213.19,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN931 M14x60,Sharjah 1 Branch,75 Nos,1.15,Nos,86.25,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,Galvanized Snap Hook DIN5299 Form C 8mm,Sharjah 1 Branch,12 Nos,1.37,Nos,16.44,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,Galvanized Hex Bolt DIN931 M10x40,Sharjah 1 Branch,150 Nos,0.41,Nos,61.50,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,SS304 Ball Lock Quick Release Pin 10x80mm,Sharjah 1 Branch,12 Nos,44.42,Nos,533.04,PS#001029 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,18-Oct-21,Monday,Dubai 1 Showroom,SS316 CSK Socket Screw DIN7991 M16x35,Sharjah 1 Branch,15 Nos,2.93,Nos,43.95,PS#001029 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,18-Oct-21,Monday,Dubai 1 Showroom,Zinc Plated Self Tapping Pan DIN7981 4.2x19mm Box/100,Sharjah 1 Branch,4 Box,3.83,Box,15.32,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,18-Oct-21,Monday,Dubai 1 Showroom,SS316 Wood Screw CSK 6x70mm,Sharjah 1 Branch,135 Nos,0.63,Nos,85.05,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00328,18-Oct-21,Monday,Sharjah 1 Branch,SS304 Hex Nut DIN934 M12 Box/100,Dubai 1 Showroom,2 Box,48.53,Box,97.06,"PS#001031 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00328,18-Oct-21,Monday,Sharjah 1 Branch,Zinc Plated CSK Socket Screw DIN7991 M12x120 Box/100,Dubai 1 Showroom,2 Box,86.47,Box,172.94,PS#001031 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00324,19-Oct-21,Tuesday,Dubai 1 Showroom,Galvanized Hex Lag Screw DIN571 M10x70 Box/100 [DE],Sharjah 1 Branch,1 Box,95.91,Box,95.91,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,19-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Wood Screw CSK 4x16mm Box/100,Sharjah 1 Branch,2 Box,8.79,Box,17.58,PS#001029 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M24x150,Sharjah 1 Branch,1 Nos,23.64,Nos,23.64,"PS#001032 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Spring Roll Pin DIN1481 2.5x25mm,Sharjah 1 Branch,101 Nos,0.11,Nos,11.11,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M14x80 Box/100,Sharjah 1 Branch,5 Box,404.27,Box,2021.35,"PS#001032 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Spring Roll Pin DIN1481 12x40mm Box/100,Sharjah 1 Branch,1 Box,68.66,Box,68.66,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M10x80 Box/500,Sharjah 1 Branch,3 Box,463.05,Box,1389.15,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,19-Oct-21,Tuesday,Dubai 1 Showroom,Galvanized Carriage Bolt DIN603 M14x70,Sharjah 1 Branch,18 Nos,1.28,Nos,23.04,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00329,19-Oct-21,Tuesday,Sharjah 1 Branch,SS316 Button Head Screw ISO7380 M12x70 Box/500,Dubai 1 Showroom,2 Box,861.73,Box,1723.46,PS#001034
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00329,19-Oct-21,Tuesday,Sharjah 1 Branch,SS316 Hex Bolt DIN931 M16x130 [DE],Dubai 1 Showroom,3 Nos,15.23,Nos,45.69,PS#001034 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00329,19-Oct-21,Tuesday,Sharjah 1 Branch,SS316 Hex Bolt DIN933 M24x65,Dubai 1 Showroom,5 Nos,10.97,Nos,54.85,PS#001034
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,20-Oct-21,Wednesday,Dubai 1 Showroom,Zinc Plated Cotter Pin DIN94 10x50mm Box/100,Sharjah 1 Branch,1 Box,59.83,Box,59.83,PS#001029
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,20-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 3.2x40mm,Sharjah 1 Branch,150 Nos,0.29,Nos,43.50,PS#001029
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,20-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Circlip External DIN471 44mm Box/100,Sharjah 1 Branch,1 Box,87.80,Box,87.80,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,20-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M5x20 [DE],Sharjah 1 Branch,17 Nos,0.28,Nos,4.76,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,20-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Compression Spring 5x20x15mm,Sharjah 1 Branch,30 Nos,4.73,Nos,141.90,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,20-Oct-21,Wednesday,Dubai 1 Showroom,Zinc Plated Fender Washer DIN9021 M14 Box/500,Sharjah 1 Branch,5 Box,86.25,Box,431.25,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00330,20-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M14x65,Sharjah 1 Branch,18 Nos,3.34,Nos,60.12,"PS#001035 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00332,20-Oct-21,Wednesday,Sharjah 1 Branch,SS316 Self Tapping Pan DIN7981 3.5x32mm Box/500,Dubai 1 Showroom,2 Box,54.11,Box,108.22,PS#001037
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00332,20-Oct-21,Wednesday,Sharjah 1 Branch,Zinc Plated Hex Bolt DIN931 M20x180 Box/50,Dubai 1 Showroom,2 Box,262.37,Box,524.74,PS#001037 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00332,20-Oct-21,Wednesday,Sharjah 1 Branch,SS316 Wedge Anchor M12x120,Dubai 1 Showroom,2 Nos,10.07,Nos,20.14,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00326,21-Oct-21,Thursday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 5.5x25mm Box/100,Sharjah 1 Branch,1 Box,21.40,Box,21.40,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,21-Oct-21,Thursday,Dubai 1 Showroom,SS304 D Shackle 4mm,Sharjah 1 Branch,200 Nos,1.28,Nos,256.00,PS#001032
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,21-Oct-21,Thursday,Dubai 1 Showroom,SS316 Threaded Rod DIN975 1m M20,Sharjah 1 Branch,8 Nos,81.81,Nos,654.48,PS#001032 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,21-Oct-21,Thursday,Dubai 1 Showroom,SS316 Spring Roll Pin DIN1481 6x60mm Box/100,Sharjah 1 Branch,6 Box,39.34,Box,236.04,"PS#001038 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,21-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated Self Tapping Pan DIN7981 3.9x13mm,Sharjah 1 Branch,207 Nos,0.11,Nos,22.77,PS#001041 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,21-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated Pan Head Machine Screw ISO7045 M10x80 [DE],Sharjah 1 Branch,20 Nos,0.48,Nos,9.60,PS#001041
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,21-Oct-21,Thursday,Dubai 1 Showroom,SS316 U-Bolt M8x75,Sharjah 1 Branch,21 Nos,4.43,Nos,93.03,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00334,21-Oct-21,Thursday,Sharjah 1 Branch,SS316 Hex Bolt DIN931 M20x150,Dubai 1 Showroom,2 Nos,16.36,Nos,32.72,PS#001040 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00334,21-Oct-21,Thursday,Sharjah 1 Branch,SS304 Wire Rope 7x7 2.5mm Reel/100m,Dubai 1 Showroom,2 Reel,40.09,Reel,80.18,PS#001040 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00334,21-Oct-21,Thursday,Sharjah 1 Branch,SS316 Self Tapping Pan DIN7981 3.9x38mm Box/100,Dubai 1 Showroom,4 Box,15.43,Box,61.72,PS#001040 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00334,21-Oct-21,Thursday,Sharjah 1 Branch,SS316 Swivel Snap Hook 60mm [DE],Dubai 1 Showroom,1 Nos,14.59,Nos,14.59,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00334,21-Oct-21,Thursday,Sharjah 1 Branch,SS316 Hex Lag Screw DIN571 M10x65,Dubai 1 Showroom,6 Nos,1.67,Nos,10.02,PS#001040 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,22-Oct-21,Friday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M16x100,Sharjah 1 Branch,30 Nos,4.63,Nos,138.90,PS#001032 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,22-Oct-21,Friday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 3.2x25mm Box/100,Sharjah 1 Branch,3 Box,16.79,Box,50.37,PS#001038
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,22-Oct-21,Friday,Dubai 1 Showroom,SS304 Ball Lock Quick Release Pin 8x100mm,Sharjah 1 Branch,8 Nos,39.88,Nos,319.04,"PS#001038 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,22-Oct-21,Friday,Dubai 1 Showroom,SS304 Sleeve Anchor M10x150 Box/50,Sharjah 1 Branch,1 Box,213.19,Box,213.19,PS#001041 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,22-Oct-21,Friday,Dubai 1 Showroom,SS316 Hex Nut DIN934 M6 Box/100 [DE],Sharjah 1 Branch,1 Box,40.34,Box,40.34,"PS#001041 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,22-Oct-21,Friday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M18x100,Sharjah 1 Branch,30 Nos,2.24,Nos,67.20,PS#001041 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,22-Oct-21,Friday,Dubai 1 Showroom,SS316 Pan Head Machine Screw ISO7045 M6x55,Sharjah 1 Branch,133 Nos,0.23,Nos,30.59,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,22-Oct-21,Friday,Dubai 1 Showroom,Spring Steel Spring Roll Pin DIN1481 1.5x16mm,Sharjah 1 Branch,200 Nos,0.11,Nos,22.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,22-Oct-21,Friday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN931 M14x45,Sharjah 1 Branch,100 Nos,1.03,Nos,103.00,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00327,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Self Tapping CSK DIN7982 2.9x32mm Box/500,Sharjah 1 Branch,1 Box,35.09,Box,35.09,PS#001032 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00330,23-Oct-21,Saturday,Dubai 1 Showroom,SS316 Sleeve Anchor M12x130,Sharjah 1 Branch,5 Nos,10.01,Nos,50.05,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M12x140,Sharjah 1 Branch,24 Nos,3.50,Nos,84.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Blind Rivet Dome Head 6.4x20mm Box/100,Sharjah 1 Branch,1 Box,10.94,Box,10.94,"PS#001038 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M14x65 Box/500 [DE],Sharjah 1 Branch,1 Box,1936.17,Box,1936.17,PS#001038 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Flange Bolt DIN6921 M10x30 Box/100,Sharjah 1 Branch,3 Box,73.71,Box,221.13,PS#001038 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,23-Oct-21,Saturday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 5.5x25mm Box/100,Sharjah 1 Branch,1 Box,21.40,Box,21.40,PS#001041 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,23-Oct-21,Saturday,Dubai 1 Showroom,SS304 Self Tapping CSK DIN7982 5.5x25mm Box/500,Sharjah 1 Branch,1 Box,66.82,Box,66.82,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,23-Oct-21,Saturday,Dubai 1 Showroom,SPECIAL SS304 Wood Screw CSK 6x70mm polished,Sharjah 1 Branch,5 Nos,39.79,Nos,198.95,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,23-Oct-21,Saturday,Dubai 1 Showroom,SS316 Self Tapping Pan DIN7981 3.9x25mm,Sharjah 1 Branch,58 Nos,0.16,Nos,9.28,"PS#001043 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00338,23-Oct-21,Saturday,Sharjah 1 Branch,SS304 Compression Spring 1.5x20x50mm,Dubai 1 Showroom,13 Nos,1.96,Nos,25.48,PS#001045 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00338,23-Oct-21,Saturday,Sharjah 1 Branch,SS304 Self Tapping CSK DIN7982 4.8x50mm Box/100,Dubai 1 Showroom,2 Box,18.50,Box,37.00,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00338,23-Oct-21,Saturday,Sharjah 1 Branch,SS316 Button Head Screw ISO7380 M4x16 Box/100,Dubai 1 Showroom,2 Box,6.27,Box,12.54,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 3.9x60mm Box/100,Sharjah 1 Branch,1 Box,15.29,Box,15.29,PS#001038
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Compression Spring 1.2x16x25mm,Sharjah 1 Branch,50 Nos,0.90,Nos,45.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00331,24-Oct-21,Sunday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M24x60 Box/50,Sharjah 1 Branch,1 Box,443.56,Box,443.56,PS#001038 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,24-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Eye Bolt DIN580 M16,Sharjah 1 Branch,18 Nos,5.88,Nos,105.84,"PS#001041 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,24-Oct-21,Sunday,Dubai 1 Showroom,SS316 Self Tapping CSK DIN7982 2.9x19mm Box/500,Sharjah 1 Branch,1 Box,34.02,Box,34.02,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Pan Head Machine Screw ISO7045 M8x75,Sharjah 1 Branch,37 Nos,0.28,Nos,10.36,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00333,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M16x50 [DE],Sharjah 1 Branch,3 Nos,6.27,Nos,18.81,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Snap Hook DIN5299 Form C 12mm,Sharjah 1 Branch,30 Nos,5.03,Nos,150.90,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,24-Oct-21,Sunday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN931 M12x110 Box/100,Sharjah 1 Branch,3 Box,121.33,Box,363.99,PS#001043
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,24-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Carriage Bolt DIN603 M14x45 Box/500,Sharjah 1 Branch,1 Box,414.25,Box,414.25,PS#001043 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,24-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Hex Bolt DIN931 M10x50 [DE],Sharjah 1 Branch,100 Nos,1.06,Nos,106.00,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,24-Oct-21,Sunday,Dubai 1 Showroom,Zinc Plated Self Tapping CSK DIN7982 3.5x45mm,Sharjah 1 Branch,75 Nos,0.12,Nos,9.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Spring Roll Pin DIN1481 12x40mm Box/100,Sharjah 1 Branch,1 Box,68.66,Box,68.66,PS#001047 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M8x80,Sharjah 1 Branch,75 Nos,0.85,Nos,63.75,PS#001047 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M8x65,Sharjah 1 Branch,100 Nos,0.44,Nos,44.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wire Rope Thimble DIN6899 3mm [DE],Sharjah 1 Branch,109 Nos,0.26,Nos,28.34,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M14x70 Box/500,Sharjah 1 Branch,1 Box,1251.37,Box,1251.37,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wire Rope Clip DIN741 8mm,Sharjah 1 Branch,14 Nos,1.29,Nos,18.06,PS#001047
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,24-Oct-21,Sunday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN933 M14x50 [DE],Sharjah 1 Branch,3 Nos,2.16,Nos,6.48,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,25-Oct-21,Monday,Dubai 1 Showroom,SS304 Self Tapping CSK DIN7982 4.2x38mm Box/500,Sharjah 1 Branch,2 Box,57.71,Box,115.42,"PS#001043 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00336,25-Oct-21,Monday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M24x150,Sharjah 1 Branch,2 Nos,23.64,Nos,47.28,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,25-Oct-21,Monday,Dubai 1 Showroom,SS304 Circlip External DIN471 44mm Box/100,Sharjah 1 Branch,1 Box,87.80,Box,87.80,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,25-Oct-21,Monday,Dubai 1 Showroom,SS304 Hex Bolt DIN933 M14x45,Sharjah 1 Branch,15 Nos,1.66,Nos,24.90,PS#001047
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,25-Oct-21,Monday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 2.9x45mm Box/100,Sharjah 1 Branch,2 Box,7.74,Box,15.48,PS#001047 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,25-Oct-21,Monday,Dubai 1 Showroom,SS316 Self Tapping Pan DIN7981 4.2x50mm Box/100 [DE],Sharjah 1 Branch,1 Box,42.34,Box,42.34,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,25-Oct-21,Monday,Dubai 1 Showroom,SS316 Dowel Pin ISO2338 3x25mm,Sharjah 1 Branch,132 Nos,0.15,Nos,19.80,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,25-Oct-21,Monday,Dubai 1 Showroom,SS316 Carriage Bolt DIN603 M10x35 [DE],Sharjah 1 Branch,10 Nos,2.06,Nos,20.60,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,25-Oct-21,Monday,Dubai 1 Showroom,SS316 D Shackle 19mm,Sharjah 1 Branch,4 Nos,25.83,Nos,103.32,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00340,25-Oct-21,Monday,Sharjah 1 Branch,SS316 S Hook 6mm Box/100,Dubai 1 Showroom,1 Box,107.68,Box,107.68,PS#001049 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00340,25-Oct-21,Monday,Sharjah 1 Branch,Grade 8.8 Black Hex Bolt DIN931 M12x120 Box/500,Dubai 1 Showroom,2 Box,503.77,Box,1007.54,PS#001049 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00340,25-Oct-21,Monday,Sharjah 1 Branch,SS304 Fender Washer DIN9021 M6 Box/500,Dubai 1 Showroom,1 Box,41.88,Box,41.88,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00340,25-Oct-21,Monday,Sharjah 1 Branch,Galvanized Hex Bolt DIN931 M8x65 Box/100,Dubai 1 Showroom,2 Box,28.98,Box,57.96,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,26-Oct-21,Tuesday,Dubai 1 Showroom,SS304 S Hook 5mm Box/100,Sharjah 1 Branch,2 Box,53.77,Box,107.54,PS#001043
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00335,26-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M16x80,Sharjah 1 Branch,20 Nos,5.31,Nos,106.20,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,26-Oct-21,Tuesday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN931 M5x25,Sharjah 1 Branch,200 Nos,0.11,Nos,22.00,PS#001047 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,26-Oct-21,Tuesday,Dubai 1 Showroom,SS304 Hex Lag Screw DIN571 M8x60 Box/500,Sharjah 1 Branch,1 Box,257.50,Box,257.50,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,26-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Ball Lock Quick Release Pin 8x80mm,Sharjah 1 Branch,2 Nos,53.02,Nos,106.04,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,26-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Cotter Pin DIN94 2x16mm Box/100,Sharjah 1 Branch,3 Box,6.80,Box,20.40,PS#001050 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,26-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Wedge Anchor M16x130,Sharjah 1 Branch,13 Nos,17.73,Nos,230.49,PS#001050
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,26-Oct-21,Tuesday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M14x70 Box/100 [DE],Sharjah 1 Branch,1 Box,665.04,Box,665.04,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00342,26-Oct-21,Tuesday,Sharjah 1 Branch,SS304 Ball Lock Quick Release Pin 5x80mm [DE],Dubai 1 Showroom,3 Nos,33.20,Nos,99.60,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00342,26-Oct-21,Tuesday,Sharjah 1 Branch,Grade 12.9 Black Socket Cap Screw DIN912 M4x20 Box/100,Dubai 1 Showroom,4 Box,3.18,Box,12.72,PS#001052 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,27-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Spring Roll Pin DIN1481 4x16mm Box/100,Sharjah 1 Branch,6 Box,11.04,Box,66.24,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,27-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Hex Bolt DIN931 M12x75,Sharjah 1 Branch,15 Nos,1.68,Nos,25.20,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00337,27-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Snap Hook DIN5299 Form C 9mm,Sharjah 1 Branch,27 Nos,2.99,Nos,80.73,PS#001047
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,27-Oct-21,Wednesday,Dubai 1 Showroom,Zinc Plated Socket Cap Screw DIN912 M14x30 Box/100,Sharjah 1 Branch,1 Box,52.77,Box,52.77,PS#001050
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,27-Oct-21,Wednesday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M12x30,Sharjah 1 Branch,150 Nos,0.46,Nos,69.00,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,27-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN931 M14x55,Sharjah 1 Branch,20 Nos,3.24,Nos,64.80,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,27-Oct-21,Wednesday,Dubai 1 Showroom,SS304 Wire Rope 1x19 2mm,Sharjah 1 Branch,75 Mtr,0.30,Mtr,22.50,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,27-Oct-21,Wednesday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M6x50,Sharjah 1 Branch,100 Nos,0.41,Nos,41.00,PS#001057 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00345,27-Oct-21,Wednesday,Sharjah 1 Branch,SS304 Cotter Pin DIN94 8x125mm Box/100,Dubai 1 Showroom,2 Box,124.19,Box,248.38,"PS#001055 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00345,27-Oct-21,Wednesday,Sharjah 1 Branch,SS316 Spring Roll Pin DIN1481 5x20mm Box/100 [DE],Dubai 1 Showroom,2 Box,29.52,Box,59.04,"PS#001055 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,28-Oct-21,Thursday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 3.9x60mm Box/100,Sharjah 1 Branch,1 Box,15.29,Box,15.29,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,28-Oct-21,Thursday,Dubai 1 Showroom,SS304 Blind Rivet Dome Head 6.4x20mm Box/100,Sharjah 1 Branch,1 Box,10.94,Box,10.94,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,28-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated Pan Head Machine Screw ISO7045 M4x10,Sharjah 1 Branch,50 Nos,0.09,Nos,4.50,PS#001050 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,28-Oct-21,Thursday,Dubai 1 Showroom,SS304 Hex Nut DIN934 M22 Box/50,Sharjah 1 Branch,2 Box,94.70,Box,189.40,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,28-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated Socket Cap Screw DIN912 M20x100,Sharjah 1 Branch,20 Nos,3.07,Nos,61.40,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,28-Oct-21,Thursday,Dubai 1 Showroom,SPECIAL SS316 Wire Rope 7x19 M7,Sharjah 1 Branch,10 Mtr,65.05,Mtr,650.50,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,SS316 Hex Bolt DIN933 M22x55,Sharjah 1 Branch,4 Nos,7.63,Nos,30.52,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,SPECIAL Galvanized Short Link Chain DIN766 17mm,Sharjah 1 Branch,5 Mtr,88.74,Mtr,443.70,PS#001057 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated CSK Socket Screw DIN7991 M8x75 Box/500,Sharjah 1 Branch,3 Box,132.58,Box,397.74,PS#001057 per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,Galvanized Flat Washer DIN125 M24 Box/50,Sharjah 1 Branch,1 Box,23.60,Box,23.60,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,Zinc Plated Cotter Pin DIN94 2x20mm Box/100,Sharjah 1 Branch,5 Box,2.25,Box,11.25,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,28-Oct-21,Thursday,Dubai 1 Showroom,SS316 Wire Rope Clip DIN741 12mm,Sharjah 1 Branch,15 Nos,3.48,Nos,52.20,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00347,28-Oct-21,Thursday,Sharjah 1 Branch,Galvanized S Hook 10mm Box/100 [DE],Dubai 1 Showroom,2 Box,202.58,Box,405.16,PS#001059 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00347,28-Oct-21,Thursday,Sharjah 1 Branch,SS304 Hex Bolt DIN933 M10x50 Box/100 [DE],Dubai 1 Showroom,4 Box,128.48,Box,513.92,PS#001059 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00347,28-Oct-21,Thursday,Sharjah 1 Branch,Grade 8.8 Black Hex Bolt DIN933 M22x220 Box/50,Dubai 1 Showroom,4 Box,363.60,Box,1454.40,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00347,28-Oct-21,Thursday,Sharjah 1 Branch,Galvanized Carriage Bolt DIN603 M12x90 Box/500,Dubai 1 Showroom,2 Box,454.47,Box,908.94,PS#001059
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00347,28-Oct-21,Thursday,Sharjah 1 Branch,SS316 Button Head Screw ISO7380 M5x35 Box/500,Dubai 1 Showroom,4 Box,63.83,Box,255.32,"PS#001059 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,29-Oct-21,Friday,Dubai 1 Showroom,SS316 D Shackle 6mm,Sharjah 1 Branch,75 Nos,4.18,Nos,313.50,PS#001050 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,29-Oct-21,Friday,Dubai 1 Showroom,Grade 8.8 Black Hex Bolt DIN933 M14x120 Box/100,Sharjah 1 Branch,2 Box,149.59,Box,299.18,PS#001057 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,29-Oct-21,Friday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M10x70 Box/500,Sharjah 1 Branch,1 Box,193.51,Box,193.51,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,29-Oct-21,Friday,Dubai 1 Showroom,Zinc Plated Pan Head Machine Screw ISO7045 M4x8 Box/500,Sharjah 1 Branch,1 Box,2.61,Box,2.61,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00344,29-Oct-21,Friday,Dubai 1 Showroom,SS304 S Hook 5mm Box/100,Sharjah 1 Branch,1 Box,53.77,Box,53.77,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,29-Oct-21,Friday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 2.9x45mm Box/100,Sharjah 1 Branch,1 Box,7.74,Box,7.74,PS#001060
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,29-Oct-21,Friday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M8x40 [DE],Sharjah 1 Branch,150 Nos,0.40,Nos,60.00,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00350,29-Oct-21,Friday,Sharjah 1 Branch,SS316 Threaded Rod DIN975 1m M14,Dubai 1 Showroom,2 Nos,47.94,Nos,95.88,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00339,30-Oct-21,Saturday,Dubai 1 Showroom,SS304 Self Tapping Pan DIN7981 4.2x45mm,Sharjah 1 Branch,100 Nos,0.14,Nos,14.00,"partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,30-Oct-21,Saturday,Dubai 1 Showroom,SS304 Hex Lag Screw DIN571 M10x100,Sharjah 1 Branch,10 Nos,1.40,Nos,14.00,PS#001053
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,30-Oct-21,Saturday,Dubai 1 Showroom,SS304 Set Screw Cup Point DIN916 M12x40,Sharjah 1 Branch,50 Nos,0.40,Nos,20.00,"PS#001053 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00343,30-Oct-21,Saturday,Dubai 1 Showroom,SS316 Wire Rope Clip DIN741 14mm,Sharjah 1 Branch,24 Nos,5.58,Nos,133.92,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,30-Oct-21,Saturday,Dubai 1 Showroom,SS304 Circlip External DIN471 44mm Box/100,Sharjah 1 Branch,1 Box,87.80,Box,87.80,PS#001060
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,30-Oct-21,Saturday,Dubai 1 Showroom,Spring Steel Spring Roll Pin DIN1481 4x35mm Box/100,Sharjah 1 Branch,3 Box,5.84,Box,17.52,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,30-Oct-21,Saturday,Dubai 1 Showroom,SS316 Wire Rope Clip DIN741 5mm,Sharjah 1 Branch,49 Nos,0.80,Nos,39.20,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,30-Oct-21,Saturday,Dubai 1 Showroom,SS316 Spring Roll Pin DIN1481 3x25mm [DE],Sharjah 1 Branch,150 Nos,0.18,Nos,27.00,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,30-Oct-21,Saturday,Dubai 1 Showroom,SS304 Cotter Pin DIN94 2x16mm,Sharjah 1 Branch,50 Nos,0.09,Nos,4.50,PS#001060 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00348,30-Oct-21,Saturday,Dubai 1 Showroom,SS316 Wire Rope Thimble DIN6899 5mm [DE],Sharjah 1 Branch,100 Nos,0.80,Nos,80.00,PS#001064 urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00348,30-Oct-21,Saturday,Dubai 1 Showroom,SS316 Pan Head Machine Screw ISO7045 M8x50 Box/100,Sharjah 1 Branch,3 Box,35.99,Box,107.97,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00353,30-Oct-21,Saturday,Sharjah 1 Branch,SS304 Pan Head Machine Screw ISO7045 M10x25 Box/100,Dubai 1 Showroom,2 Box,22.54,Box,45.08,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00353,30-Oct-21,Saturday,Sharjah 1 Branch,Galvanized Carriage Bolt DIN603 M10x110 Box/500,Dubai 1 Showroom,1 Box,382.70,Box,382.70,PS#001066 as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00341,31-Oct-21,Sunday,Dubai 1 Showroom,SS316 Hex Nut DIN934 M6 Box/100 [DE],Sharjah 1 Branch,1 Box,40.34,Box,40.34,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00346,31-Oct-21,Sunday,Dubai 1 Showroom,Zinc Plated Hex Bolt DIN933 M14x90,Sharjah 1 Branch,45 Nos,1.27,Nos,57.15,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00348,31-Oct-21,Sunday,Dubai 1 Showroom,SS304 Self Tapping CSK DIN7982 4.8x16mm Box/100,Sharjah 1 Branch,1 Box,10.39,Box,10.39,per call with Sharjah 1
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00351,31-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wire Rope 7x19 14mm,Sharjah 1 Branch,26 Mtr,11.60,Mtr,301.60,urgent - customer waiting
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00351,31-Oct-21,Sunday,Dubai 1 Showroom,Galvanized Hex Bolt DIN933 M18x90 Box/50,Sharjah 1 Branch,1 Box,143.17,Box,143.17,as per WA msg
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00351,31-Oct-21,Sunday,Dubai 1 Showroom,SS304 Socket Cap Screw DIN912 M8x20,Sharjah 1 Branch,100 Nos,0.30,Nos,30.00,"PS#001068 partial, balance later"
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00351,31-Oct-21,Sunday,Dubai 1 Showroom,SS304 Wood Screw CSK 6x30mm Box/500,Sharjah 1 Branch,1 Box,102.63,Box,102.63,
+Stock Journal,Transfer of Materials - Inter Godown,SJ/2021/00352,31-Oct-21,Sunday,Dubai 1 Showroom,SS316 Ball Lock Quick Release Pin 8x80mm,Sharjah 1 Branch,3 Nos,53.02,Nos,159.06,

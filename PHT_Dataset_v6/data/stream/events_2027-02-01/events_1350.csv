@@ -1,0 +1,2 @@
+event_id,event_ts,event_type,location_id,product_id,qty,unit_price_aed,line_total_aed,customer_id,reference,counterparty
+EV0000289,2027-02-01 13:52:20,TRANSFER_IN,AJM1,PHT-00057,200,,,,TR-AJM1-0036,WH1

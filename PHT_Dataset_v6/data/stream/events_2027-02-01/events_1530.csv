@@ -1,0 +1,3 @@
+event_id,event_ts,event_type,location_id,product_id,qty,unit_price_aed,line_total_aed,customer_id,reference,counterparty
+EV0000194,2027-02-01 15:38:04,SALE,SHJ2,PHT-33601,20,3.40,68.00,C01670,SHJ2/2027/00194,
+EV0000195,2027-02-01 15:38:04,SALE,SHJ2,PHT-19183,10,2.48,24.80,C01670,SHJ2/2027/00194,

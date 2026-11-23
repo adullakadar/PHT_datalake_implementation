@@ -1,0 +1,2 @@
+event_id,event_ts,event_type,location_id,product_id,qty,unit_price_aed,line_total_aed,customer_id,reference,counterparty
+EV0000167,2027-02-01 15:28:44,SALE,DB1,PHT-01133,26,3.65,94.96,C01170,DB1/2027/00167,

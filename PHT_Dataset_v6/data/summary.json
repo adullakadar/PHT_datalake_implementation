@@ -1,0 +1,75 @@
+{
+  "company": "Piplodwala Hardware Trading LLC (academic case study - SIMULATED data, TallyPrime export formats)",
+  "seed": 3122026,
+  "period": [
+    "2019-07-01",
+    "2026-10-31"
+  ],
+  "branch_openings": {
+    "SHJ1": "2019-07-01",
+    "DB1": "2021-04-01",
+    "SHJ2": "2023-02-01"
+  },
+  "items_in_master": 42194,
+  "one_off_items": 4578,
+  "customer_accounts": 2400,
+  "suppliers": 16,
+  "sales_invoice_lines": 400207,
+  "sales_invoices": 196816,
+  "customers_per_day_by_year": {
+    "2019": 27.6,
+    "2020": 31.3,
+    "2021": 56.8,
+    "2022": 74.2,
+    "2023": 96.2,
+    "2024": 116.8,
+    "2025": 132.0,
+    "2026": 145.4
+  },
+  "customers_per_day_Aug_Oct_2026": 149.3,
+  "sales_lines_by_branch": {
+    "SHJ1": 230064,
+    "DB1": 116883,
+    "SHJ2": 53260
+  },
+  "quotations": 107554,
+  "quotation_lines": 283980,
+  "quotes_converted_to_invoice": 41902,
+  "revenue_aed_2025": 13100956.35,
+  "revenue_share_2025_by_customer_emirate_pct": {
+    "Dubai": 33.2,
+    "Sharjah": 29.0,
+    "(walk-in)": 13.1,
+    "Ajman": 11.6,
+    "Ras Al Khaimah": 4.7,
+    "Umm Al Quwain": 3.6,
+    "Abu Dhabi": 2.4,
+    "Fujairah": 2.3
+  },
+  "transfer_lines": 212503,
+  "pink_slips": 10440,
+  "transfer_receipts_missing": 3021,
+  "transfer_qty_mismatches": 1923,
+  "purchase_invoice_lines": 164117,
+  "supplier_invoices": 21380,
+  "stock_snapshots": [
+    "2019-12-31",
+    "2020-12-31",
+    "2021-12-31",
+    "2022-12-31",
+    "2023-12-31",
+    "2024-12-31",
+    "2025-12-31",
+    "2026-08-31",
+    "2026-09-30",
+    "2026-10-31"
+  ],
+  "hidden_truth": {
+    "sales_lines_lost_to_stockouts": 7325,
+    "special_orders_customer_waited": 29866
+  },
+  "stream_day": "2027-02-01",
+  "stream_events": 446,
+  "stream_expected_low_stock_alerts": 139,
+  "total_size_mb": 445.8
+}

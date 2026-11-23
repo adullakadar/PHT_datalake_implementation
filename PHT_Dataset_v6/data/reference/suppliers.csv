@@ -1,0 +1,17 @@
+supplier_id,supplier_name,location,country,supplier_type,standard_lead_time_days,payment_terms
+SUP001,Deira Wire Rope Trading,"Deira, Dubai",UAE,Wholesaler,1,Cash
+SUP002,Al Ras Rigging Supplies,"Al Ras, Dubai",UAE,Wholesaler,1,Cash
+SUP003,Creekside Marine Hardware,"Deira, Dubai",UAE,Wholesaler,3,30 days
+SUP004,Naif Fasteners & Tools,"Naif, Dubai",UAE,Wholesaler,2,30 days
+SUP005,Industrial Area Bolt House,"Industrial Area 6, Sharjah",UAE,Wholesaler,1,30 days
+SUP006,Sharjah Industrial Rigging,"Industrial Area 4, Sharjah",UAE,Wholesaler,1,30 days
+SUP007,Hamriyah Marine Supplies,"Hamriyah Free Zone, Sharjah",UAE,Distributor,5,30 days
+SUP008,Jebel Ali Steel Wire Distribution,Jebel Ali Free Zone,UAE,Distributor,3,30 days
+SUP009,JAFZA Chain & Lifting,Jebel Ali Free Zone,UAE,Distributor,4,Cash
+SUP010,Ajman Pins & Springs Trading,"Al Jurf, Ajman",UAE,Wholesaler,4,30 days
+SUP011,Al Qusais Hardware Distributors,"Al Qusais, Dubai",UAE,Distributor,2,30 days
+SUP012,Musaffah Stainless Supplies,"Musaffah, Abu Dhabi",UAE,Distributor,5,30 days
+SUP013,Dammam Wire & Chain Co.,Dammam,Saudi Arabia,Distributor,6,30 days
+SUP014,Ningbo Marine Hardware Co.,Ningbo (via Jebel Ali),China,Importer,35,30 days
+SUP015,Qingdao Stainless Fasteners Co.,Qingdao (via Jebel Ali),China,Importer,43,30 days
+SUP016,Mumbai Rigging Exports,Mumbai (via Jebel Ali),India,Importer,20,Cash

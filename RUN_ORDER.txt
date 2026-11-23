@@ -1,0 +1,92 @@
+PHT DATA LAKE - RUN ORDER
+=========================
+Every script is saved in /home/bigdata/PHT/<folder>/ (open each one in gedit, check it, save).
+Long or always-on things run in a TERMINAL, quick checks and results in ZEPPELIN (%sh / %hive / %hbase).
+Lab 7 rule: do NOT use spark-shell and Zeppelin %spark at the same time.
+
+---------------------------------------------------------------------------
+0. SERVICES  (lab style, one terminal window each for Hive)
+---------------------------------------------------------------------------
+Terminal 1:  $HIVE_HOME/bin/hive --service metastore
+Terminal 2:  $HIVE_HOME/bin/hiveserver2
+Terminal 3:
+  $HADOOP_HOME/sbin/hadoop-daemon.sh start namenode
+  $HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
+  $HADOOP_HOME/sbin/yarn-daemon.sh start resourcemanager
+  $HADOOP_HOME/sbin/yarn-daemon.sh start nodemanager
+  $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+  $HBASE_HOME/bin/start-hbase.sh
+  jps
+
+---------------------------------------------------------------------------
+1. RAW ZONE  (Terminal 3)
+---------------------------------------------------------------------------
+  cd /home/bigdata/PHT && unzip -q -o PHT_Dataset_v6.zip
+  $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/bigdata/pht/raw/tally /user/bigdata/pht/raw/stream /user/bigdata/pht/clean /user/bigdata/pht/curated /user/bigdata/pht/checkpoints
+  for BR in SHJ1 DB1 SHJ2; do
+    $HADOOP_HOME/bin/hadoop fs -rm -r -f /user/bigdata/pht/raw/tally/$BR
+    $HADOOP_HOME/bin/hadoop fs -put /home/bigdata/PHT/PHT_Dataset_v6/data/tally_exports/$BR /user/bigdata/pht/raw/tally/
+  done
+Check in Zeppelin (%sh): Notebook 01 paragraphs 6-7 (count / du / fsck)  -> screenshots
+
+---------------------------------------------------------------------------
+2. SPARK ETL RAW -> CLEAN   file: spark/02_raw_to_clean.scala
+---------------------------------------------------------------------------
+Terminal 3:
+  $SPARK_HOME/bin/spark-shell --master local[*] --driver-memory 2g -i /home/bigdata/PHT/spark/02_raw_to_clean.scala
+  (tables print as it runs -> screenshots; type :quit at the end)
+Check in Zeppelin (%sh):  $HADOOP_HOME/bin/hadoop fs -du -h /user/bigdata/pht/clean
+
+---------------------------------------------------------------------------
+3. STREAMING + HBASE   files: spark/03a..03c, hbase/03_*.hb, sh/feed_stream.sh
+---------------------------------------------------------------------------
+a) stage the stream files (Terminal 3):
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f /user/bigdata/pht/raw/stream /user/bigdata/pht/checkpoints /user/bigdata/pht/curated/stream /user/bigdata/pht/clean/opening_stock /user/bigdata/pht/clean/hbase_opening
+  $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/bigdata/pht/raw/stream/staging /user/bigdata/pht/raw/stream/events_landing /user/bigdata/pht/clean/opening_stock
+  $HADOOP_HOME/bin/hadoop fs -put /home/bigdata/PHT/PHT_Dataset_v6/data/stream/opening_stock_2027-02-01.csv /user/bigdata/pht/clean/opening_stock/
+  $HADOOP_HOME/bin/hadoop fs -put /home/bigdata/PHT/PHT_Dataset_v6/data/stream/events_2027-02-01/*.csv /user/bigdata/pht/raw/stream/staging/
+b) HBase table (Terminal 3; on the first run "table not found" from disable/drop is normal):
+  $HBASE_HOME/bin/hbase shell < /home/bigdata/PHT/hbase/03_create_table.hb
+c) Terminal 4 - start streaming (leave this spark-shell open):
+  $SPARK_HOME/bin/spark-shell --master local[*] --driver-memory 2g -i /home/bigdata/PHT/spark/03a_start_streaming.scala
+d) Terminal 3 - bulk-load opening stock into HBase (MapReduce ImportTsv):
+  $HBASE_HOME/bin/hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns=HBASE_ROW_KEY,s:qty,s:rop,s:status pht_stock /user/bigdata/pht/clean/hbase_opening
+e) Terminal 3 - replay the day:
+  bash /home/bigdata/PHT/sh/feed_stream.sh
+f) Terminal 4 (inside spark-shell), several times DURING the replay -> screenshots:
+  :load /home/bigdata/PHT/spark/03b_check_results.scala
+g) after the replay - push stock changes to HBase and look items up (Terminal 3):
+  $HADOOP_HOME/bin/hadoop fs -cat /user/bigdata/pht/curated/stream/hbase_updates/part-* > /home/bigdata/PHT/hbase/stock_updates.hb
+  echo "exit" >> /home/bigdata/PHT/hbase/stock_updates.hb
+  $HBASE_HOME/bin/hbase shell < /home/bigdata/PHT/hbase/stock_updates.hb > /home/bigdata/PHT/hbase/stock_updates.rpt
+  $HBASE_HOME/bin/hbase shell < /home/bigdata/PHT/hbase/03_lookups.hb
+h) Terminal 4 (spark-shell):  :load /home/bigdata/PHT/spark/03c_stop_streaming.scala   then  :quit
+
+---------------------------------------------------------------------------
+4. MAPREDUCE JOBS   files: mr/*.py
+---------------------------------------------------------------------------
+Terminal 3:
+  cd /home/bigdata/PHT/mr
+  JAR=$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar
+  PHT=/user/bigdata/pht
+  # local test first (Lab 3 style)
+  $HADOOP_HOME/bin/hadoop fs -cat $PHT/clean/transfer_records/part-* | head -20000 | /usr/bin/python3 transfer_mapper.py | LC_ALL=C sort -t$'\t' -k1,1 | /usr/bin/python3 transfer_reducer.py | head -5
+
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_sales_monthly
+  time $HADOOP_HOME/bin/hadoop jar $JAR -D mapreduce.job.reduces=2 -files sales_mapper.py,sales_reducer.py -mapper "/usr/bin/python3 sales_mapper.py" -reducer "/usr/bin/python3 sales_reducer.py" -input $PHT/clean/sales_lines -output $PHT/curated/mr_sales_monthly
+
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_transfer_matching
+  time $HADOOP_HOME/bin/hadoop jar $JAR -D mapreduce.job.reduces=2 -files transfer_mapper.py,transfer_reducer.py -cmdenv DATA_END=2026-10-31 -mapper "/usr/bin/python3 transfer_mapper.py" -reducer "/usr/bin/python3 transfer_reducer.py" -input $PHT/clean/transfer_records -output $PHT/curated/mr_transfer_matching
+
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_stock_reconciliation
+  time $HADOOP_HOME/bin/hadoop jar $JAR -D mapreduce.job.reduces=2 -files recon_mapper.py,recon_reducer.py -cmdenv RECON_FROM=2026-08-31 -cmdenv RECON_TO=2026-10-31 -mapper "/usr/bin/python3 recon_mapper.py" -reducer "/usr/bin/python3 recon_reducer.py" -input $PHT/clean/stock_snapshots -input $PHT/clean/transfer_records -input $PHT/clean/purchase_lines -input $PHT/clean/sales_lines -output $PHT/curated/mr_stock_reconciliation
+Results in Zeppelin (%sh): Notebook 04 paragraphs 7, 8, 10  -> screenshots
+
+---------------------------------------------------------------------------
+5. HIVE WAREHOUSE + OLAP   files: hql/05a, 05b, 05c
+---------------------------------------------------------------------------
+Terminal 3:
+  $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata -f /home/bigdata/PHT/hql/05a_staging.hql
+  $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata -f /home/bigdata/PHT/hql/05b_star_schema.hql      (10-20 min)
+  $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata --outputformat=table -f /home/bigdata/PHT/hql/05c_olap_queries.hql
+Nicer screenshots/charts: paste single queries from 05c into Zeppelin %hive paragraphs.

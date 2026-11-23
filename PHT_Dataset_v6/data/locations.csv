@@ -1,0 +1,6 @@
+location_id,godown_name,emirate,type,opened,tally_setup,status
+SHJ1,Sharjah 1 Showroom,Sharjah,Branch (main),2019-07-01,TallyPrime server + client PCs; also books the warehouse,Operating
+WH1,Main Warehouse,Sharjah,Warehouse,2019-07-01,Godown inside SHJ1 Tally,Operating
+DB1,Dubai 1 Showroom,Dubai,Branch,2021-04-01,"TallyPrime on a single PC, no server",Operating
+SHJ2,Sharjah 2 Showroom,Sharjah,Branch,2023-02-01,TallyPrime server + client PCs,Operating
+AJM1,Ajman Showroom,Ajman,Branch,,Proposed - joins the data lake,Provisional

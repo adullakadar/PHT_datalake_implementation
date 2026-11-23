@@ -1,0 +1,4 @@
+items	42194	42194	SPECIAL one-off items: 4578
+customers	6389	2401	same ledger in several branches merged on name + TRN
+suppliers	16	16	
+sales_lines	400207	400207	unmatched items: 0, unmatched customers: 0, bad dates: 0

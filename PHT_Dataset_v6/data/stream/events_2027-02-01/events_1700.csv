@@ -1,0 +1,4 @@
+event_id,event_ts,event_type,location_id,product_id,qty,unit_price_aed,line_total_aed,customer_id,reference,counterparty
+EV0000215,2027-02-01 17:07:36,SALE,SHJ1,PHT-22667,6,4.78,28.68,WALKIN,SHJ1/2027/00215,
+EV0000216,2027-02-01 17:07:36,SALE,SHJ1,PHT-35036,1,47.71,47.71,WALKIN,SHJ1/2027/00215,
+EV0000365,2027-02-01 17:07:44,TRANSFER_IN,DB1,PHT-01133,20,,,,TR-DB1-0167,WH1

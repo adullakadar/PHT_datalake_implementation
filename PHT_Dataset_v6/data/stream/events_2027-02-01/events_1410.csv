@@ -1,0 +1,4 @@
+event_id,event_ts,event_type,location_id,product_id,qty,unit_price_aed,line_total_aed,customer_id,reference,counterparty
+EV0000432,2027-02-01 14:12:07,TRANSFER_IN,DB1,PHT-26101,100,,,,TR-DB1-0258,WH1
+EV0000330,2027-02-01 14:13:54,TRANSFER_IN,SHJ1,PHT-37215,20,,,,TR-SHJ1-0111,WH1
+EV0000428,2027-02-01 14:17:19,TRANSFER_IN,SHJ1,PHT-33043,1,,,,TR-SHJ1-0252,WH1
