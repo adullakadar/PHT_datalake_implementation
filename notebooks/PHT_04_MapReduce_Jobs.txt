@@ -1,0 +1,342 @@
+PHT NOTEBOOK 04 - MAPREDUCE BATCH JOBS (HADOOP STREAMING, PYTHON)
+Each block = one Zeppelin paragraph. Paste the text between the lines into a new paragraph and run top to bottom.
+
+==============================================================================
+PARAGRAPH 0: About this notebook
+==============================================================================
+%md
+## PHT Data Lake - Notebook 04: MapReduce batch jobs (Hadoop Streaming + Python, as in Lab 3)
+Three overnight batch jobs over the **clean zone**, writing results to the **curated zone**:
+
+| Job | Map emits | Reduce does | PHT problem |
+|---|---|---|---|
+| 1. Monthly sales | `branch|item|month -> qty, amount` | sums per key (the WordCount pattern) | monthly summary tables for reports |
+| 2. Transfer matching | `from|to|item -> OUT/IN record` | **reduce-side join** of the two separate Tally entries of each transfer | transfers typed twice and never checked |
+| 3. Stock reconciliation | `location|item -> opening / ±movement / closing` | opening + movements vs counted closing stock | stock records nobody can trust |
+
+Run Notebooks 01 and 02 first. Scripts are saved in `/home/bigdata/PHT/mr`.
+
+==============================================================================
+PARAGRAPH 1: 1a. Job 1 mapper - save sales_mapper.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/sales_mapper.py <<'EOF'
+#!/usr/bin/env python3
+# Job 1 - monthly units & revenue per branch per item (the WordCount pattern with a business key)
+# input : clean/sales_lines (tab separated)
+# output: branch|item_id|yyyy-mm <TAB> qty <TAB> amount
+import sys
+for line in sys.stdin:
+    f = line.rstrip("\n").split("\t")
+    if len(f) < 13 or not f[6]:
+        continue
+    branch, sale_date, item_id, qty, amount = f[0], f[2], f[6], f[7], f[12]
+    print("%s|%s|%s\t%s\t%s" % (branch, item_id, sale_date[:7], qty, amount))
+EOF
+chmod +x /home/bigdata/PHT/mr/sales_mapper.py
+echo saved sales_mapper.py
+
+==============================================================================
+PARAGRAPH 2: 1b. Job 1 reducer - save sales_reducer.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/sales_reducer.py <<'EOF'
+#!/usr/bin/env python3
+# Job 1 reducer - sums qty and amount per key (input arrives sorted by key)
+import sys
+cur, qty, amt = None, 0, 0.0
+def out():
+    b, item, ym = cur.split("|")
+    print("%s\t%s\t%s\t%d\t%.2f" % (b, item, ym, qty, amt))
+for line in sys.stdin:
+    key, q, a = line.rstrip("\n").split("\t")
+    if key != cur:
+        if cur is not None:
+            out()
+        cur, qty, amt = key, 0, 0.0
+    qty += int(q); amt += float(a)
+if cur is not None:
+    out()
+EOF
+chmod +x /home/bigdata/PHT/mr/sales_reducer.py
+echo saved sales_reducer.py
+
+==============================================================================
+PARAGRAPH 3: 2a. Job 2 mapper - save transfer_mapper.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/transfer_mapper.py <<'EOF'
+#!/usr/bin/env python3
+# Job 2 - transfer matching (reduce-side join of the two separate Tally records of each transfer)
+# input : clean/transfer_records (tab separated)
+# output: from_loc|to_loc|item_id <TAB> direction <TAB> date <TAB> qty <TAB> pink_slip <TAB> voucher_no <TAB> recorded_by
+import sys
+for line in sys.stdin:
+    f = line.rstrip("\n").split("\t")
+    if len(f) < 13:
+        continue
+    recorded_by, voucher, date, item_id, frm, to, direction, qty, slip = f[0], f[1], f[2], f[5], f[6], f[7], f[8], f[9], f[12]
+    if direction not in ("OUT", "IN") or not item_id:
+        continue                     # WH_TO_SHJ1 is a single entry inside SHJ1's Tally: nothing to match
+    print("%s|%s|%s\t%s\t%s\t%s\t%s\t%s\t%s" % (frm, to, item_id, direction, date, qty, slip, voucher, recorded_by))
+EOF
+chmod +x /home/bigdata/PHT/mr/transfer_mapper.py
+echo saved transfer_mapper.py
+
+==============================================================================
+PARAGRAPH 4: 2b. Job 2 reducer - save transfer_reducer.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/transfer_reducer.py <<'EOF'
+#!/usr/bin/env python3
+# Job 2 reducer - all OUT and IN records of one route+item arrive together.
+# pairs OUT with IN in 4 passes: same slip + same qty, same qty within 7 days, same slip, within 7 days
+# status: MATCHED | QTY_MISMATCH | RECEIPT_MISSING | IN_TRANSIT (sent in the last 7 days) | RECEIPT_WITHOUT_DISPATCH
+import sys, os
+from datetime import datetime
+DATA_END = datetime.strptime(os.environ.get("DATA_END", "2026-10-31"), "%Y-%m-%d")
+WINDOW = 7
+
+def d(s):
+    return datetime.strptime(s, "%Y-%m-%d")
+
+def emit(key, status, o, i, method):
+    frm, to, item = key.split("|")
+    out_date, out_q, out_v = (o[1], o[2], o[4]) if o else ("", "", "")
+    in_date, in_q, in_v = (i[1], i[2], i[4]) if i else ("", "", "")
+    lag = str((d(in_date) - d(out_date)).days) if (o and i) else ""
+    print("\t".join([frm, to, item, status, out_date, in_date, str(out_q), str(in_q), lag, out_v, in_v, method]))
+
+def match(key, recs):
+    outs = sorted([r for r in recs if r[0] == "OUT"], key=lambda r: r[1])
+    ins = sorted([r for r in recs if r[0] == "IN"], key=lambda r: r[1])
+    used_in, done, pairs = set(), set(), []
+    def in_window(o, r):
+        return 0 <= (d(r[1]) - d(o[1])).days <= WINDOW
+    # four passes, strictest first: slip+qty, date+qty, slip only, date only
+    rules = [("SLIP", lambda o, r: o[3] and r[3] == o[3] and r[2] == o[2]),
+             ("DATE", lambda o, r: in_window(o, r) and r[2] == o[2]),
+             ("SLIP", lambda o, r: o[3] and r[3] == o[3]),
+             ("DATE", lambda o, r: in_window(o, r))]
+    for method, ok in rules:
+        for j, o in enumerate(outs):
+            if j in done:
+                continue
+            cands = [k for k, r in enumerate(ins) if k not in used_in and ok(o, r)]
+            if cands:
+                k = min(cands, key=lambda k: ins[k][1])
+                used_in.add(k); done.add(j); pairs.append((o, ins[k], method))
+    for j, o in enumerate(outs):
+        if j not in done:
+            pairs.append((o, None, ""))
+    for o, i, method in pairs:
+        if i is None:
+            emit(key, "IN_TRANSIT" if (DATA_END - d(o[1])).days <= WINDOW else "RECEIPT_MISSING", o, None, "")
+        else:
+            emit(key, "MATCHED" if o[2] == i[2] else "QTY_MISMATCH", o, i, method)
+    for k, r in enumerate(ins):
+        if k not in used_in:
+            emit(key, "RECEIPT_WITHOUT_DISPATCH", None, r, "")
+
+cur, recs = None, []
+for line in sys.stdin:
+    p = line.rstrip("\n").split("\t")
+    key, rec = p[0], (p[1], p[2], int(p[3]), p[4], p[5], p[6])   # direction, date, qty, slip, voucher, recorded_by
+    if key != cur:
+        if cur is not None:
+            match(cur, recs)
+        cur, recs = key, []
+    recs.append(rec)
+if cur is not None:
+    match(cur, recs)
+EOF
+chmod +x /home/bigdata/PHT/mr/transfer_reducer.py
+echo saved transfer_reducer.py
+
+==============================================================================
+PARAGRAPH 5: 3a. Job 3 mapper - save recon_mapper.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/recon_mapper.py <<'EOF'
+#!/usr/bin/env python3
+# Job 3 - stock reconciliation: counted stock (godown summary) vs stock calculated from recorded movements
+# reads 4 clean datasets at once; RECON_FROM / RECON_TO are snapshot dates passed with -cmdenv
+# output: location|item_id <TAB> B|M|E <TAB> qty     (B = opening count, M = movement, E = closing count)
+import sys, os
+FROM = os.environ.get("RECON_FROM", "2026-08-31")
+TO = os.environ.get("RECON_TO", "2026-10-31")
+def inside(day):
+    return FROM < day <= TO
+def out(loc, item, tag, q):
+    print("%s|%s\t%s\t%d" % (loc, item, tag, q))
+for line in sys.stdin:
+    f = line.rstrip("\n").split("\t")
+    n = len(f)
+    if n == 5:                                              # stock_snapshots: date, location, item, qty, value
+        if f[2] and f[0] == FROM:
+            out(f[1], f[2], "B", int(f[3]))
+        elif f[2] and f[0] == TO:
+            out(f[1], f[2], "E", int(f[3]))
+    elif n >= 14 and f[8] in ("OUT", "IN", "WH_TO_SHJ1"):  # transfer_records
+        if f[5] and inside(f[2]):
+            q = int(f[9])
+            if f[8] == "OUT":
+                out(f[6], f[5], "M", -q)
+            elif f[8] == "IN":
+                out(f[7], f[5], "M", q)
+            else:
+                out("WH1", f[5], "M", -q); out("SHJ1", f[5], "M", q)
+    elif n >= 17 and f[0].startswith("PUR/"):              # purchase_lines: booked into the warehouse on entry date
+        if f[9] and inside(f[1]):
+            out("WH1", f[9], "M", int(f[10]))
+    elif n >= 17:                                          # sales_lines: stock leaves the branch (actual qty)
+        if f[6] and inside(f[2]):
+            out(f[0], f[6], "M", -int(f[7]))
+EOF
+chmod +x /home/bigdata/PHT/mr/recon_mapper.py
+echo saved recon_mapper.py
+
+==============================================================================
+PARAGRAPH 6: 3b. Job 3 reducer - save recon_reducer.py
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/mr
+cat > /home/bigdata/PHT/mr/recon_reducer.py <<'EOF'
+#!/usr/bin/env python3
+# Job 3 reducer - calculated = opening count + movements; compare with closing count
+# output only the discrepancies: location, item, opening, movements, calculated, counted, difference
+import sys
+cur, b, m, e = None, 0, 0, 0
+def out():
+    calc = b + m
+    if calc != e:
+        loc, item = cur.split("|")
+        print("%s\t%s\t%d\t%d\t%d\t%d\t%d" % (loc, item, b, m, calc, e, e - calc))
+for line in sys.stdin:
+    key, tag, q = line.rstrip("\n").split("\t")
+    if key != cur:
+        if cur is not None:
+            out()
+        cur, b, m, e = key, 0, 0, 0
+    if tag == "B":
+        b += int(q)
+    elif tag == "E":
+        e += int(q)
+    else:
+        m += int(q)
+if cur is not None:
+    out()
+EOF
+chmod +x /home/bigdata/PHT/mr/recon_reducer.py
+echo saved recon_reducer.py
+
+==============================================================================
+PARAGRAPH 7: 4. Quick local test (pipe a sample through mapper | sort | reducer, like Lab 3)
+==============================================================================
+%sh
+cd /home/bigdata/PHT/mr
+$HADOOP_HOME/bin/hadoop fs -cat /user/bigdata/pht/clean/transfer_records/part-* | head -20000 \
+  | /usr/bin/python3 transfer_mapper.py | LC_ALL=C sort -t$'\t' -k1,1 | /usr/bin/python3 transfer_reducer.py | head -5
+
+==============================================================================
+PARAGRAPH 8: 5. Run Job 1 on the cluster: monthly sales per branch per item
+==============================================================================
+%sh
+cd /home/bigdata/PHT/mr
+PHT=/user/bigdata/pht
+$HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_sales_monthly
+time $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
+  -D mapreduce.job.name="PHT monthly sales" \
+  -D mapreduce.job.reduces=2 \
+  -files sales_mapper.py,sales_reducer.py \
+  -cmdenv LC_ALL=C.UTF-8 \
+  -mapper "/usr/bin/python3 sales_mapper.py" \
+  -reducer "/usr/bin/python3 sales_reducer.py" \
+  -input $PHT/clean/sales_lines \
+  -output $PHT/curated/mr_sales_monthly 2>&1 | grep -E "Running job|completed successfully|Map input records|Map output records|Reduce output records|ERROR|Error|real"
+$HADOOP_HOME/bin/hadoop fs -cat $PHT/curated/mr_sales_monthly/part-* | head -5
+
+==============================================================================
+PARAGRAPH 9: 6. Run Job 2 on the cluster: transfer matching (reduce-side join)
+==============================================================================
+%sh
+cd /home/bigdata/PHT/mr
+PHT=/user/bigdata/pht
+$HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_transfer_matching
+time $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
+  -D mapreduce.job.name="PHT transfer matching" \
+  -D mapreduce.job.reduces=2 \
+  -files transfer_mapper.py,transfer_reducer.py \
+  -cmdenv DATA_END=2026-10-31 -cmdenv LC_ALL=C.UTF-8 \
+  -mapper "/usr/bin/python3 transfer_mapper.py" \
+  -reducer "/usr/bin/python3 transfer_reducer.py" \
+  -input $PHT/clean/transfer_records \
+  -output $PHT/curated/mr_transfer_matching 2>&1 | grep -E "Running job|completed successfully|Map input records|Map output records|Reduce output records|ERROR|Error|real"
+
+==============================================================================
+PARAGRAPH 10: 7. Transfer matching results
+==============================================================================
+%sh
+OUT=/user/bigdata/pht/curated/mr_transfer_matching
+echo "== result per transfer line =="
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | cut -f4 | sort | uniq -c | sort -rn
+echo "== how each pair was matched (SLIP = pink slip in narration, DATE = by date window) =="
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | cut -f12 | sort | uniq -c
+echo "== examples: from, to, item, status, sent, received entry, qty sent, qty received, days, out voucher, in voucher =="
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | grep -m3 QTY_MISMATCH
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | grep -m3 RECEIPT_MISSING
+
+==============================================================================
+PARAGRAPH 11: 8. Validate against the dataset's answer key
+==============================================================================
+%sh
+python3 -c "
+import json
+d = json.load(open('/home/bigdata/PHT/PHT_Dataset_v6/data/summary.json'))
+print('answer key: receipts never entered =', d['transfer_receipts_missing'], ' | quantity mismatches =', d['transfer_qty_mismatches'])
+"
+
+==============================================================================
+PARAGRAPH 12: 9. Run Job 3 on the cluster: stock reconciliation (Sep-Oct 2026)
+==============================================================================
+%sh
+cd /home/bigdata/PHT/mr
+PHT=/user/bigdata/pht
+$HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/curated/mr_stock_reconciliation
+time $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
+  -D mapreduce.job.name="PHT stock reconciliation" \
+  -D mapreduce.job.reduces=2 \
+  -files recon_mapper.py,recon_reducer.py \
+  -cmdenv RECON_FROM=2026-08-31 -cmdenv RECON_TO=2026-10-31 -cmdenv LC_ALL=C.UTF-8 \
+  -mapper "/usr/bin/python3 recon_mapper.py" \
+  -reducer "/usr/bin/python3 recon_reducer.py" \
+  -input $PHT/clean/stock_snapshots \
+  -input $PHT/clean/transfer_records \
+  -input $PHT/clean/purchase_lines \
+  -input $PHT/clean/sales_lines \
+  -output $PHT/curated/mr_stock_reconciliation 2>&1 | grep -E "Running job|completed successfully|Map input records|Map output records|Reduce output records|ERROR|Error|real"
+
+==============================================================================
+PARAGRAPH 13: 10. Stock reconciliation results
+==============================================================================
+%sh
+OUT=/user/bigdata/pht/curated/mr_stock_reconciliation
+echo "== items whose counted stock does not match their recorded movements, per location =="
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | cut -f1 | sort | uniq -c
+echo "== biggest gaps: location, item, opening, movements, calculated, counted, difference =="
+$HADOOP_HOME/bin/hadoop fs -cat $OUT/part-* | sort -t$'\t' -k7,7nr | head -8
+
+==============================================================================
+PARAGRAPH 14: Notes for the report
+==============================================================================
+%md
+- **MapReduce beyond WordCount:** Job 1 *is* WordCount with a business key. Job 2 is a **reduce-side join**: the sender's and receiver's records come from two different Tally systems, and the shuffle brings both to the same reducer because they share the key `from|to|item`. Job 3 joins four datasets the same way.
+- **Why MapReduce fits here:** these are large, simple overnight batch jobs where a few minutes don't matter.
+- **Why MapReduce does NOT fit live stock:** each job starts new JVMs/containers and reads and writes HDFS between map and reduce, so even a small job takes tens of seconds (see the `real` time above). That's fine overnight, useless at the counter. Live stock uses Structured Streaming (Notebook 03).
+- **Results for PHT:** every transfer is checked automatically. Missing receipts and wrong quantities, which nobody noticed in the two-voucher process, are listed for follow-up.
+

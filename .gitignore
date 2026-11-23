@@ -1,0 +1,7 @@
+# files the pipeline regenerates on the VM
+hbase/stock_updates.hb
+hbase/stock_updates.rpt
+mr/one_day_sales.tsv
+# archives / zips
+*.tar.gz
+*.zip

@@ -1,0 +1,97 @@
+PHT NOTEBOOK 01 - SETUP + RAW ZONE
+Each block = one Zeppelin paragraph. Paste the text between the lines into a new paragraph and run top to bottom.
+
+==============================================================================
+PARAGRAPH 0: About this notebook
+==============================================================================
+%md
+## PHT Data Lake - Notebook 01: Set up the cluster and load the RAW zone
+1. Starts the Hadoop, YARN and HBase services, plus the Hive metastore and HiveServer2.
+2. Creates the three data lake zones in HDFS: **raw** (as received), **clean** (standardised), **curated** (warehouse).
+3. Copies every branch's TallyPrime exports into the raw zone **unchanged** (schema-on-read).
+
+Local project folder: `/home/bigdata/PHT` (the dataset zip is unzipped here). HDFS lake root: `/user/bigdata/pht`.
+
+==============================================================================
+PARAGRAPH 1: 1. Unzip the dataset into the project folder
+==============================================================================
+%sh
+cd /home/bigdata/PHT
+unzip -q -o PHT_Dataset_v6.zip
+ls /home/bigdata/PHT/PHT_Dataset_v6/data/tally_exports/*
+du -sh /home/bigdata/PHT/PHT_Dataset_v6/data
+
+==============================================================================
+PARAGRAPH 2: 2. Start Hadoop, YARN, job history and HBase (skip any already running)
+==============================================================================
+%sh
+$HADOOP_HOME/sbin/hadoop-daemon.sh start namenode
+$HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
+$HADOOP_HOME/sbin/yarn-daemon.sh start resourcemanager
+$HADOOP_HOME/sbin/yarn-daemon.sh start nodemanager
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+$HBASE_HOME/bin/start-hbase.sh
+sleep 5
+jps
+
+==============================================================================
+PARAGRAPH 3: 3. Start the Hive metastore and HiveServer2 in the background (needed by %hive)
+==============================================================================
+%sh
+nohup $HIVE_HOME/bin/hive --service metastore > /home/bigdata/PHT/metastore.log 2>&1 &
+sleep 10
+nohup $HIVE_HOME/bin/hiveserver2 > /home/bigdata/PHT/hiveserver2.log 2>&1 &
+sleep 30
+jps | grep -i -E "RunJar|HiveServer" ; echo "if two RunJar processes are listed, Hive is up"
+
+==============================================================================
+PARAGRAPH 4: 4. Create the data lake zones in HDFS
+==============================================================================
+%sh
+PHT=/user/bigdata/pht
+$HADOOP_HOME/bin/hadoop fs -mkdir -p $PHT/raw/tally $PHT/raw/stream
+$HADOOP_HOME/bin/hadoop fs -mkdir -p $PHT/clean
+$HADOOP_HOME/bin/hadoop fs -mkdir -p $PHT/curated
+$HADOOP_HOME/bin/hadoop fs -mkdir -p $PHT/checkpoints
+$HADOOP_HOME/bin/hadoop fs -ls $PHT
+
+==============================================================================
+PARAGRAPH 5: 5. Load every branch's Tally exports into the RAW zone (unchanged)
+==============================================================================
+%sh
+LOCAL=/home/bigdata/PHT/PHT_Dataset_v6/data
+PHT=/user/bigdata/pht
+for BR in SHJ1 DB1 SHJ2; do
+  echo "loading $BR ..."
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f $PHT/raw/tally/$BR
+  $HADOOP_HOME/bin/hadoop fs -put $LOCAL/tally_exports/$BR $PHT/raw/tally/
+done
+echo "done"
+
+==============================================================================
+PARAGRAPH 6: 6. Check what landed in the raw zone
+==============================================================================
+%sh
+PHT=/user/bigdata/pht
+$HADOOP_HOME/bin/hadoop fs -ls $PHT/raw/tally/SHJ1
+echo "---- files / size per branch (DIR_COUNT FILE_COUNT BYTES PATH)"
+$HADOOP_HOME/bin/hadoop fs -count $PHT/raw/tally/*
+echo "---- size of each export type"
+$HADOOP_HOME/bin/hadoop fs -du -h $PHT/raw/tally/SHJ1
+echo "---- a few raw sales rows exactly as Tally exported them"
+$HADOOP_HOME/bin/hadoop fs -cat $PHT/raw/tally/DB1/sales/SalesInvoices_DB1_2025_03.csv | head -3
+
+==============================================================================
+PARAGRAPH 7: 7. How HDFS stores it: blocks and replication
+==============================================================================
+%sh
+$HADOOP_HOME/bin/hdfs fsck /user/bigdata/pht/raw -files -blocks | tail -20
+
+==============================================================================
+PARAGRAPH 8: Notes for the report
+==============================================================================
+%md
+- **Raw zone = schema-on-read.** Tally's files are stored exactly as exported (Tally dates like `5-Mar-25`, quantities like `20 Nos`, the voucher header repeated on every line). Nothing is changed or thrown away, so any later step can be re-run from the original data.
+- **One store for all branches.** Before: three separate Tally data folders on three separate machines. After: one HDFS folder per branch under one lake, all readable by Spark, MapReduce and Hive.
+- **Reliability:** HDFS splits files into blocks and replicates them (replication factor 1 on this single-node VM; 3 on a real cluster).
+

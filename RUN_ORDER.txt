@@ -21,7 +21,7 @@ Terminal 3:
 ---------------------------------------------------------------------------
 1. RAW ZONE  (Terminal 3)
 ---------------------------------------------------------------------------
-  cd /home/bigdata/PHT && unzip -q -o PHT_Dataset_v6.zip
+  cd /home/bigdata/PHT && unzip -q -o PHT_Dataset_v6.zip      (skip this line if you got PHT from GitHub: the dataset is already unzipped)
   $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/bigdata/pht/raw/tally /user/bigdata/pht/raw/stream /user/bigdata/pht/clean /user/bigdata/pht/curated /user/bigdata/pht/checkpoints
   for BR in SHJ1 DB1 SHJ2; do
     $HADOOP_HOME/bin/hadoop fs -rm -r -f /user/bigdata/pht/raw/tally/$BR
@@ -48,7 +48,7 @@ a) stage the stream files (Terminal 3):
 b) HBase table (Terminal 3; on the first run "table not found" from disable/drop is normal):
   $HBASE_HOME/bin/hbase shell < /home/bigdata/PHT/hbase/03_create_table.hb
 c) Terminal 4 - start streaming (leave this spark-shell open):
-  $SPARK_HOME/bin/spark-shell --master local[*] --driver-memory 2g -i /home/bigdata/PHT/spark/03a_start_streaming.scala
+  $SPARK_HOME/bin/spark-shell --master local[*] --driver-memory 1g --conf spark.sql.shuffle.partitions=4 -i /home/bigdata/PHT/spark/03a_start_streaming.scala
 d) Terminal 3 - bulk-load opening stock into HBase (MapReduce ImportTsv):
   $HBASE_HOME/bin/hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns=HBASE_ROW_KEY,s:qty,s:rop,s:status pht_stock /user/bigdata/pht/clean/hbase_opening
 e) Terminal 3 - replay the day:
@@ -90,3 +90,31 @@ Terminal 3:
   $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata -f /home/bigdata/PHT/hql/05b_star_schema.hql      (10-20 min)
   $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata --outputformat=table -f /home/bigdata/PHT/hql/05c_olap_queries.hql
 Nicer screenshots/charts: paste single queries from 05c into Zeppelin %hive paragraphs.
+
+---------------------------------------------------------------------------
+6. BENCHMARKS (why each tool is / is not the right one)   files: hql/06a, hbase/06b, spark/06c
+---------------------------------------------------------------------------
+a) Zeppelin %sh - storage: raw CSV vs clean TSV vs ORC for the same sales lines
+  $HADOOP_HOME/bin/hadoop fs -du -s -h /user/bigdata/pht/raw/tally/SHJ1/sales /user/bigdata/pht/raw/tally/DB1/sales /user/bigdata/pht/raw/tally/SHJ2/sales
+  $HADOOP_HOME/bin/hadoop fs -du -s -h /user/bigdata/pht/clean/sales_lines /user/hive/warehouse/pht_dw.db/fact_sales
+  $HADOOP_HOME/bin/hadoop fs -du -s -h /user/hive/warehouse/pht_dw.db/fact_sales/year=2026/month=9
+b) Terminal 3 (Hive still running):
+  $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata --force=true -f /home/bigdata/PHT/hql/06a_hive_bench.hql
+  then Zeppelin %sh:
+  $HADOOP_HOME/bin/hadoop fs -ls /user/hive/warehouse/pht_dw.db/bench_stock_changes
+c) stop Hive: Ctrl+C in Terminal 1 and Terminal 2 (frees memory)
+d) Terminal 3 - MapReduce on ONE day of sales (~150 lines) vs the same thing locally:
+  cd /home/bigdata/PHT/mr
+  JAR=$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar
+  PHT=/user/bigdata/pht
+  $HADOOP_HOME/bin/hadoop fs -cat $PHT/clean/sales_lines/part-* | head -150 > one_day_sales.tsv
+  $HADOOP_HOME/bin/hadoop fs -mkdir -p $PHT/bench/one_day
+  $HADOOP_HOME/bin/hadoop fs -put -f one_day_sales.tsv $PHT/bench/one_day/
+  time (cat one_day_sales.tsv | /usr/bin/python3 sales_mapper.py | LC_ALL=C sort | /usr/bin/python3 sales_reducer.py | wc -l)
+  $HADOOP_HOME/bin/hadoop fs -rm -r -f -skipTrash $PHT/bench/mr_one_day
+  time $HADOOP_HOME/bin/hadoop jar $JAR -D mapreduce.job.reduces=1 -files sales_mapper.py,sales_reducer.py -mapper "/usr/bin/python3 sales_mapper.py" -reducer "/usr/bin/python3 sales_reducer.py" -input $PHT/bench/one_day -output $PHT/bench/mr_one_day
+e) Terminal 3 - HBase (start it first if it is down: $HBASE_HOME/bin/start-hbase.sh):
+  $HBASE_HOME/bin/hbase shell < /home/bigdata/PHT/hbase/06b_hbase_bench.hb
+f) Terminal 4 - Spark doing MapReduce Job 1 (compare with Job 1 = 33.9 s):
+  $SPARK_HOME/bin/spark-shell --master local[*] --driver-memory 1g --conf spark.sql.shuffle.partitions=4 -i /home/bigdata/PHT/spark/06c_spark_vs_mr.scala
+  (type :quit when it finishes)

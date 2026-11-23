@@ -1,0 +1,335 @@
+PHT NOTEBOOK 05 - HIVE DATA WAREHOUSE + OLAP REPORTS
+Each block = one Zeppelin paragraph. Paste the text between the lines into a new paragraph and run top to bottom.
+
+==============================================================================
+PARAGRAPH 0: About this notebook
+==============================================================================
+%md
+## PHT Data Lake - Notebook 05: Hive data warehouse (curated zone) + OLAP reports
+1. **Staging:** Hive *external* tables over the clean zone and the MapReduce outputs. No data is copied (schema-on-read).
+2. **Star schema:** dimension tables (`dim_item`, `dim_customer`, `dim_supplier`, `dim_location`, `dim_date`) and fact tables (`fact_sales`, `fact_quote`, `fact_purchase`, `fact_transfer`, `fact_stock_snapshot`), stored as **ORC** and **partitioned by year/month**, as in Lab 5.
+3. **OLAP reports:** ROLLUP, CUBE, GROUPING SETS, slice/dice and drill-down. These are the reports PHT currently can't run without slowing Tally.
+
+Run Notebooks 01, 02 and 04 first. HiveServer2 must be running (Notebook 01, paragraph 3).
+
+==============================================================================
+PARAGRAPH 1: 1. Save + run the staging script (external tables) with Beeline
+==============================================================================
+%sh
+mkdir -p /home/bigdata/PHT/hql
+cat > /home/bigdata/PHT/hql/05a_staging.hql <<'EOF'
+-- PHT Notebook 05a: external tables over the CLEAN zone and the MapReduce outputs (no data is copied)
+CREATE DATABASE IF NOT EXISTS pht_dw;
+USE pht_dw;
+
+DROP TABLE IF EXISTS stg_items;
+CREATE EXTERNAL TABLE stg_items (item_id STRING, item_name STRING, stock_group STRING, uom STRING, std_cost DOUBLE, is_special STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/items';
+
+DROP TABLE IF EXISTS stg_customers;
+CREATE EXTERNAL TABLE stg_customers (customer_id STRING, ledger_name STRING, trn STRING, emirate STRING, address STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/customers';
+
+DROP TABLE IF EXISTS stg_suppliers;
+CREATE EXTERNAL TABLE stg_suppliers (supplier_id STRING, supplier_name STRING, trn STRING, country STRING, location STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/suppliers';
+
+DROP TABLE IF EXISTS stg_sales_lines;
+CREATE EXTERNAL TABLE stg_sales_lines (branch STRING, voucher_no STRING, sale_date DATE, year INT, month INT, customer_id STRING,
+  item_id STRING, actual_qty INT, billed_qty INT, uom STRING, rate DOUBLE, disc_pct DOUBLE, amount DOUBLE, vat_amount DOUBLE,
+  quote_no STRING, delivered STRING, payment_terms STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/sales_lines';
+
+DROP TABLE IF EXISTS stg_quote_lines;
+CREATE EXTERNAL TABLE stg_quote_lines (branch STRING, quote_no STRING, quote_date DATE, year INT, month INT, customer_id STRING,
+  item_id STRING, qty INT, rate DOUBLE, disc_pct DOUBLE, amount DOUBLE, converted STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/quote_lines';
+
+DROP TABLE IF EXISTS stg_purchase_lines;
+CREATE EXTERNAL TABLE stg_purchase_lines (voucher_no STRING, entry_date DATE, received_date DATE, year INT, month INT,
+  supplier_id STRING, supplier_invoice_no STRING, po_no STRING, po_date DATE, item_id STRING, received_qty INT, billed_qty INT,
+  rate DOUBLE, amount DOUBLE, vat_amount DOUBLE, lead_days INT, entry_lag_days INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/purchase_lines';
+
+DROP TABLE IF EXISTS stg_stock_snapshots;
+CREATE EXTERNAL TABLE stg_stock_snapshots (snapshot_date DATE, location STRING, item_id STRING, qty INT, value DOUBLE)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/clean/stock_snapshots';
+
+DROP TABLE IF EXISTS mr_transfer_matching;
+CREATE EXTERNAL TABLE mr_transfer_matching (from_loc STRING, to_loc STRING, item_id STRING, status STRING, out_date STRING,
+  in_date STRING, qty_sent STRING, qty_received STRING, entry_lag_days STRING, out_voucher STRING, in_voucher STRING, match_method STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/curated/mr_transfer_matching';
+
+DROP TABLE IF EXISTS mr_stock_reconciliation;
+CREATE EXTERNAL TABLE mr_stock_reconciliation (location STRING, item_id STRING, opening_qty INT, movements INT, calculated_qty INT,
+  counted_qty INT, difference INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/curated/mr_stock_reconciliation';
+
+DROP TABLE IF EXISTS mr_sales_monthly;
+CREATE EXTERNAL TABLE mr_sales_monthly (branch STRING, item_id STRING, year_month STRING, qty INT, amount DOUBLE)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '/user/bigdata/pht/curated/mr_sales_monthly';
+
+SHOW TABLES;
+EOF
+$HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata -f /home/bigdata/PHT/hql/05a_staging.hql 2>&1 | grep -v -E '^(SLF4J|INFO)'
+
+==============================================================================
+PARAGRAPH 2: 2. Save the star-schema script and start it in the background (Hive runs it as MapReduce jobs: allow 10-20 minutes)
+==============================================================================
+%sh
+cat > /home/bigdata/PHT/hql/05b_star_schema.hql <<'EOF'
+-- PHT Notebook 05b: star schema in the CURATED zone (ORC, facts partitioned by year/month)
+USE pht_dw;
+SET hive.exec.dynamic.partition=true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.exec.max.dynamic.partitions=2000;
+SET hive.exec.max.dynamic.partitions.pernode=2000;
+SET hive.optimize.sort.dynamic.partition=true;
+
+-- ---------------- dimensions
+DROP TABLE IF EXISTS dim_location;
+CREATE TABLE dim_location (location_id STRING, location_name STRING, emirate STRING, location_type STRING, opened STRING) STORED AS ORC;
+INSERT INTO TABLE dim_location VALUES
+  ('SHJ1', 'Sharjah 1 (main)', 'Sharjah', 'Branch', '2019-07-01'),
+  ('WH1', 'Main Warehouse', 'Sharjah', 'Warehouse', '2019-07-01'),
+  ('DB1', 'Dubai 1', 'Dubai', 'Branch', '2021-04-01'),
+  ('SHJ2', 'Sharjah 2', 'Sharjah', 'Branch', '2023-02-01'),
+  ('AJM1', 'Ajman (proposed)', 'Ajman', 'Branch', '');
+
+DROP TABLE IF EXISTS dim_item;
+CREATE TABLE dim_item (item_id STRING, item_name STRING, stock_group STRING, uom STRING, std_cost DOUBLE, is_special STRING) STORED AS ORC;
+INSERT OVERWRITE TABLE dim_item SELECT * FROM stg_items;
+
+DROP TABLE IF EXISTS dim_customer;
+CREATE TABLE dim_customer (customer_id STRING, ledger_name STRING, trn STRING, emirate STRING, address STRING) STORED AS ORC;
+INSERT OVERWRITE TABLE dim_customer SELECT * FROM stg_customers;
+
+DROP TABLE IF EXISTS dim_supplier;
+CREATE TABLE dim_supplier (supplier_id STRING, supplier_name STRING, trn STRING, country STRING, location STRING) STORED AS ORC;
+INSERT OVERWRITE TABLE dim_supplier SELECT * FROM stg_suppliers;
+
+DROP TABLE IF EXISTS dim_date;
+CREATE TABLE dim_date (date_key INT, full_date DATE, year INT, quarter INT, month INT, month_name STRING, day_name STRING) STORED AS ORC;
+INSERT OVERWRITE TABLE dim_date
+SELECT CAST(date_format(d, 'yyyyMMdd') AS INT), d, year(d), quarter(d), month(d), date_format(d, 'MMM'), date_format(d, 'EEEE')
+FROM (SELECT sale_date AS d FROM stg_sales_lines
+      UNION SELECT quote_date FROM stg_quote_lines
+      UNION SELECT received_date FROM stg_purchase_lines
+      UNION SELECT snapshot_date FROM stg_stock_snapshots) x
+WHERE d IS NOT NULL;
+
+-- ---------------- facts
+DROP TABLE IF EXISTS fact_sales;
+CREATE TABLE fact_sales (voucher_no STRING, date_key INT, location_id STRING, customer_id STRING, item_id STRING,
+  actual_qty INT, billed_qty INT, rate DOUBLE, disc_pct DOUBLE, amount DOUBLE, vat_amount DOUBLE, quote_no STRING,
+  delivered STRING, payment_terms STRING)
+PARTITIONED BY (year INT, month INT) STORED AS ORC;
+INSERT OVERWRITE TABLE fact_sales PARTITION (year, month)
+SELECT voucher_no, CAST(date_format(sale_date, 'yyyyMMdd') AS INT), branch, customer_id, item_id, actual_qty, billed_qty, rate,
+       disc_pct, amount, vat_amount, quote_no, delivered, payment_terms, year, month
+FROM stg_sales_lines;
+
+DROP TABLE IF EXISTS fact_quote;
+CREATE TABLE fact_quote (quote_no STRING, date_key INT, location_id STRING, customer_id STRING, item_id STRING, qty INT,
+  amount DOUBLE, converted STRING)
+PARTITIONED BY (year INT, month INT) STORED AS ORC;
+INSERT OVERWRITE TABLE fact_quote PARTITION (year, month)
+SELECT quote_no, CAST(date_format(quote_date, 'yyyyMMdd') AS INT), branch, customer_id, item_id, qty, amount, converted, year, month
+FROM stg_quote_lines;
+
+DROP TABLE IF EXISTS fact_purchase;
+CREATE TABLE fact_purchase (voucher_no STRING, received_date_key INT, supplier_id STRING, item_id STRING, po_no STRING,
+  received_qty INT, billed_qty INT, amount DOUBLE, lead_days INT, entry_lag_days INT)
+PARTITIONED BY (year INT, month INT) STORED AS ORC;
+INSERT OVERWRITE TABLE fact_purchase PARTITION (year, month)
+SELECT voucher_no, CAST(date_format(received_date, 'yyyyMMdd') AS INT), supplier_id, item_id, po_no, received_qty, billed_qty,
+       amount, lead_days, entry_lag_days, year, month
+FROM stg_purchase_lines;
+
+DROP TABLE IF EXISTS fact_transfer;
+CREATE TABLE fact_transfer (from_loc STRING, to_loc STRING, item_id STRING, status STRING, sent_date_key INT,
+  received_entry_date_key INT, qty_sent INT, qty_received INT, entry_lag_days INT, match_method STRING)
+PARTITIONED BY (year INT) STORED AS ORC;
+INSERT OVERWRITE TABLE fact_transfer PARTITION (year)
+SELECT from_loc, to_loc, item_id, status,
+       CAST(regexp_replace(out_date, '-', '') AS INT), CAST(regexp_replace(in_date, '-', '') AS INT),
+       CAST(qty_sent AS INT), CAST(qty_received AS INT), CAST(entry_lag_days AS INT), match_method,
+       CAST(substr(CASE WHEN out_date <> '' THEN out_date ELSE in_date END, 1, 4) AS INT)
+FROM mr_transfer_matching;
+
+DROP TABLE IF EXISTS fact_stock_snapshot;
+CREATE TABLE fact_stock_snapshot (snapshot_date_key INT, location_id STRING, item_id STRING, qty INT, value DOUBLE) STORED AS ORC;
+INSERT OVERWRITE TABLE fact_stock_snapshot
+SELECT CAST(date_format(snapshot_date, 'yyyyMMdd') AS INT), location, item_id, qty, value FROM stg_stock_snapshots;
+
+SHOW PARTITIONS fact_sales;
+EOF
+nohup $HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata -f /home/bigdata/PHT/hql/05b_star_schema.hql > /home/bigdata/PHT/hql/05b.log 2>&1 &
+echo started - check progress with the next paragraph
+
+==============================================================================
+PARAGRAPH 3: 3. Progress of the star-schema build (re-run until you see the SHOW PARTITIONS list at the end)
+==============================================================================
+%sh
+grep -E "INSERT OVERWRITE|INSERT INTO|rows affected|Error|FAILED|year=" /home/bigdata/PHT/hql/05b.log | tail -15
+
+==============================================================================
+PARAGRAPH 4: 4. What the warehouse looks like in HDFS (ORC files, one folder per partition)
+==============================================================================
+%sh
+$HADOOP_HOME/bin/hadoop fs -du -h /user/hive/warehouse/pht_dw.db
+echo "---- fact_sales partitions (first 10)"
+$HADOOP_HOME/bin/hadoop fs -ls /user/hive/warehouse/pht_dw.db/fact_sales | head -10
+echo "---- raw Tally CSV vs ORC fact table size"
+$HADOOP_HOME/bin/hadoop fs -du -s -h /user/bigdata/pht/raw/tally/*/sales /user/hive/warehouse/pht_dw.db/fact_sales
+
+==============================================================================
+PARAGRAPH 5: Q1. ROLLUP - revenue by branch and year, with branch subtotals and grand total
+==============================================================================
+%hive
+SELECT location_id, year, COUNT(DISTINCT voucher_no) AS invoices, ROUND(SUM(amount), 0) AS revenue_aed
+FROM pht_dw.fact_sales
+GROUP BY location_id, year WITH ROLLUP
+ORDER BY location_id, year
+
+==============================================================================
+PARAGRAPH 6: Q2. CUBE - revenue by product group x branch (2025), every combination of subtotals
+==============================================================================
+%hive
+SELECT stock_group, location_id, ROUND(SUM(amount), 0) AS revenue_aed
+FROM (SELECT i.stock_group, s.location_id, s.amount
+      FROM pht_dw.fact_sales s JOIN pht_dw.dim_item i ON s.item_id = i.item_id
+      WHERE s.year = 2025) t
+GROUP BY stock_group, location_id WITH CUBE
+ORDER BY stock_group, location_id
+
+==============================================================================
+PARAGRAPH 7: Q3. GROUPING SETS - monthly revenue per branch and yearly revenue per customer emirate
+==============================================================================
+%hive
+SELECT location_id, year, month, emirate, ROUND(SUM(amount), 0) AS revenue_aed
+FROM (SELECT s.location_id, s.year, s.month, c.emirate, s.amount
+      FROM pht_dw.fact_sales s JOIN pht_dw.dim_customer c ON s.customer_id = c.customer_id
+      WHERE s.year >= 2025) t
+GROUP BY location_id, year, month, emirate
+GROUPING SETS ((location_id, year, month), (year, emirate))
+ORDER BY year, location_id, month, emirate
+
+==============================================================================
+PARAGRAPH 8: Q4. Ajman case - where 2025 revenue comes from (customer emirate)
+==============================================================================
+%hive
+SELECT customer_emirate, revenue_aed, ROUND(100 * revenue_aed / SUM(revenue_aed) OVER (), 1) AS pct_of_revenue
+FROM (SELECT CASE WHEN c.emirate = '' THEN '(walk-in)' ELSE c.emirate END AS customer_emirate,
+             ROUND(SUM(s.amount), 0) AS revenue_aed
+      FROM pht_dw.fact_sales s JOIN pht_dw.dim_customer c ON s.customer_id = c.customer_id
+      WHERE s.year = 2025
+      GROUP BY CASE WHEN c.emirate = '' THEN '(walk-in)' ELSE c.emirate END) g
+ORDER BY revenue_aed DESC
+
+==============================================================================
+PARAGRAPH 9: Q5. Quotations - how many quotes become invoices, per branch per year
+==============================================================================
+%hive
+SELECT location_id, year, COUNT(DISTINCT quote_no) AS quotes,
+       COUNT(DISTINCT CASE WHEN converted = 'Y' THEN quote_no END) AS converted,
+       ROUND(100 * COUNT(DISTINCT CASE WHEN converted = 'Y' THEN quote_no END) / COUNT(DISTINCT quote_no), 1) AS conversion_pct
+FROM pht_dw.fact_quote
+GROUP BY location_id, year
+ORDER BY location_id, year
+
+==============================================================================
+PARAGRAPH 10: Q6. Transfer problems found by MapReduce, per route
+==============================================================================
+%hive
+SELECT from_loc, to_loc,
+       SUM(CASE WHEN status = 'MATCHED' THEN 1 ELSE 0 END) AS matched,
+       SUM(CASE WHEN status = 'QTY_MISMATCH' THEN 1 ELSE 0 END) AS qty_mismatch,
+       SUM(CASE WHEN status = 'RECEIPT_MISSING' THEN 1 ELSE 0 END) AS receipt_missing,
+       SUM(CASE WHEN status = 'IN_TRANSIT' THEN 1 ELSE 0 END) AS in_transit,
+       ROUND(AVG(entry_lag_days), 1) AS avg_days_until_receipt_typed
+FROM pht_dw.fact_transfer
+WHERE status <> 'RECEIPT_WITHOUT_DISPATCH'
+GROUP BY from_loc, to_loc
+ORDER BY from_loc, to_loc
+
+==============================================================================
+PARAGRAPH 11: Q7. Transfer problems per year (drill down by time)
+==============================================================================
+%hive
+SELECT year, COUNT(*) AS transfer_lines,
+       SUM(CASE WHEN status = 'QTY_MISMATCH' THEN 1 ELSE 0 END) AS qty_mismatch,
+       SUM(CASE WHEN status = 'RECEIPT_MISSING' THEN 1 ELSE 0 END) AS receipt_missing
+FROM pht_dw.fact_transfer
+GROUP BY year ORDER BY year
+
+==============================================================================
+PARAGRAPH 12: Q8. Slow and dead stock - items in stock on 31-Oct-2026 with no sale in the last 12 months
+==============================================================================
+%hive
+SELECT i.stock_group, COUNT(DISTINCT ss.item_id) AS dead_items, ROUND(SUM(ss.value), 0) AS stock_value_aed
+FROM pht_dw.fact_stock_snapshot ss
+JOIN pht_dw.dim_item i ON ss.item_id = i.item_id
+LEFT JOIN (SELECT DISTINCT item_id FROM pht_dw.fact_sales WHERE (year = 2025 AND month >= 11) OR year = 2026) recent
+       ON ss.item_id = recent.item_id
+WHERE ss.snapshot_date_key = 20261031 AND recent.item_id IS NULL
+GROUP BY i.stock_group
+ORDER BY stock_value_aed DESC
+
+==============================================================================
+PARAGRAPH 13: Q9. Supplier delivery performance (order date -> goods received)
+==============================================================================
+%hive
+SELECT sp.supplier_name, sp.country, COUNT(DISTINCT p.voucher_no) AS deliveries,
+       ROUND(AVG(p.lead_days), 1) AS avg_lead_days, MAX(p.lead_days) AS worst_lead_days,
+       ROUND(AVG(p.entry_lag_days), 1) AS avg_days_until_bill_typed_in
+FROM pht_dw.fact_purchase p JOIN pht_dw.dim_supplier sp ON p.supplier_id = sp.supplier_id
+WHERE p.year = 2026
+GROUP BY sp.supplier_name, sp.country
+ORDER BY avg_lead_days DESC
+
+==============================================================================
+PARAGRAPH 14: Q10. Top 10 items by revenue in 2026 (note the recurring SPECIAL items - candidates for the regular catalogue)
+==============================================================================
+%hive
+SELECT i.item_name, i.stock_group, SUM(s.actual_qty) AS units, ROUND(SUM(s.amount), 0) AS revenue_aed
+FROM pht_dw.fact_sales s JOIN pht_dw.dim_item i ON s.item_id = i.item_id
+WHERE s.year = 2026
+GROUP BY i.item_name, i.stock_group
+ORDER BY revenue_aed DESC
+LIMIT 10
+
+==============================================================================
+PARAGRAPH 15: Q11. Stock records that don't add up (MapReduce reconciliation, Sep-Oct 2026)
+==============================================================================
+%hive
+SELECT location, COUNT(*) AS items_with_gap, SUM(ABS(difference)) AS total_units_off
+FROM pht_dw.mr_stock_reconciliation
+GROUP BY location ORDER BY items_with_gap DESC
+
+==============================================================================
+PARAGRAPH 16: If %hive doesn't work on your VM: run any query through Beeline instead
+==============================================================================
+%sh
+$HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000 -n bigdata --outputformat=table -e "
+SELECT location_id, year, COUNT(DISTINCT voucher_no) AS invoices, ROUND(SUM(amount), 0) AS revenue_aed
+FROM pht_dw.fact_sales GROUP BY location_id, year WITH ROLLUP ORDER BY location_id, year;" 2>/dev/null
+
+==============================================================================
+PARAGRAPH 17: Notes for the report
+==============================================================================
+%md
+- **Schema-on-read in practice:** the staging tables are only definitions over files Spark and MapReduce already wrote. The star schema is built *from* them, in ORC.
+- **Why ORC + partitions:** ORC is a columnar format, so a query reads only the columns it needs, compressed. Partitioning by year/month means a query on 2025 only opens 2025's folders (partition pruning). Both are measured in Notebook 06.
+- **Performance isolation:** all of these reports run on the data lake. Tally, which serves live sales, is never touched.
+- **Q1. ROLLUP**: Rows with NULL year are branch subtotals; the row with both NULL is the company total. Shows each branch's growth since opening.
+- **Q2. CUBE**: Slice (year = 2025) + dice by group and branch; CUBE adds totals per group, per branch and overall.
+- **Q3. GROUPING SETS**: Two custom aggregation levels in one pass, as in Lab 5.
+- **Q4. Ajman case**: Customers based in Ajman, Umm Al Quwain and RAK travel to Sharjah today: the demand a 4th branch in Ajman would serve.
+- **Q5. Quotations**: Quote data PHT already has in Tally but never analyses.
+- **Q6**: Every route out of SHJ1 carries the warehouse traffic, because warehouse stock is booked through SHJ1.
+- **Q7**: Transfer volume grows with each new branch, and so do the errors.
+- **Q8. Slow and dead stock**: Capital tied up in items that have not sold for a year - invisible in Tally today.
+- **Q9**: Which suppliers are slow, and how long bills sit before someone types them into Tally.
+- **Q11**: Counted stock vs stock calculated from every recorded sale, purchase and transfer.
+
